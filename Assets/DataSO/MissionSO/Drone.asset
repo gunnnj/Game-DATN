@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d746f7aa190305c44956a60610ec3dde, type: 3}
+  m_Name: Drone
+  m_EditorClassIdentifier: 
+  NameMission: Drone
+  ImageMission: {fileID: 21300000, guid: 7c71c81c6aa326e439a553561a922703, type: 3}
+  Describe: "Drone h\u1ED7 tr\u1EE3 t\u1EA5n c\xF4ng"
+  RequimentSoldier: 2
+  RequimentGold: 20
+  TimeToComplete: 40
+  TypeMission: 2
