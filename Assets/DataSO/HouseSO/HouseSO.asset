@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HouseSO
   m_EditorClassIdentifier: 
   Health: 100
-  amountSolider: 3
+  amountSolider: 1

@@ -4,8 +4,6 @@ public class EnemyFindTarget : MonoBehaviour
 {
 
 
-
-
     // private void OnTriggerEnter(Collider other)
     // {
     //     if (other.CompareTag("Player"))
@@ -19,7 +17,9 @@ public class EnemyFindTarget : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             SetTargetPlayer(other);
-            
+        }
+        else if(other.CompareTag("MainHouse")){
+            SetTargetPlayer(other);
         }
     }
     

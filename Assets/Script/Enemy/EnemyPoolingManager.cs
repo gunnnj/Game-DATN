@@ -1,10 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyPoolingManager : MonoBehaviour
 {
+    [SerializeField] private int amountGoblin;
+    [SerializeField] private float timeToSpawn;
+    private Vector3 posSpawn;
+
     void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -12,13 +15,14 @@ public class EnemyPoolingManager : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        // int amount = 10;
-        // while(amount>0){        
-            EnemyPooling.Instance.SetPositionEnemy(transform.position);
-            yield return new WaitForSeconds(2f);
-            EnemyPooling.Instance.SetPositionEnemy(transform.position);
-        //     amount--;
-        // }
+        
+        while(amountGoblin>0){   
+            int dirX = Random.Range(1, 11);
+            posSpawn = transform.position+ new Vector3(dirX,0f,0f);   
+            EnemyPooling.Instance.SetPositionEnemy(posSpawn);
+            yield return new WaitForSeconds(timeToSpawn);
+            amountGoblin--;
+        }
         
     }
 }

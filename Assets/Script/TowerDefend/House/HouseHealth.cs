@@ -31,6 +31,12 @@ namespace Script.TowerDefend.HouseSO
             if (currentHP == 0)
             {
                 Debug.Log("Generate: " + HouseData.AmountSolider);
+                int amount = HouseData.AmountSolider;
+                for(int i=0; i<amount; i ++ ){
+                    SoldierPooling.Instance.GetSoldier(transform.position+new Vector3(i,0f,i));
+                }
+                gameObject.SetActive(false);
+                // Destroy(gameObject);
             }
         }
         

@@ -86,9 +86,11 @@ public class ArmyPlayer : MonoBehaviour
 
     private void AddPlayer(Vector3 postion)
     {
-        GameObject game =  Instantiate(playerPrefab, postion, Quaternion.identity, transform);
+        // GameObject soldier =  Instantiate(playerPrefab, postion, Quaternion.identity, transform);
+        Debug.Log("Add player");
+        GameObject soldier = PlayerPooling.Instance.GetPlayer(postion,transform);
     
-        Players.Add(game.GetComponent<SoldierController>());
+        Players.Add(soldier.GetComponent<SoldierController>());
         ChangeLineUpArmy(this.lineUp);
     }
 

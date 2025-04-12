@@ -27,8 +27,10 @@ namespace Script.Weapon
         {
             if (other.CompareTag( "House") || other.CompareTag("Enemy"))
             {
-              
-                other.GetComponent<IHealthDamage>().Damage(Damage);
+                if(other.GetComponent<IHealthDamage>()!=null){
+                    other.GetComponent<IHealthDamage>().Damage(Damage);
+                }
+                
                 StartCoroutine(weaponMovement.DestroyObjectCourutine());
             }
         }
