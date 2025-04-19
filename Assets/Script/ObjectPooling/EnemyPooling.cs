@@ -17,8 +17,8 @@ public class EnemyPooling : ObjectPooling
         GameObject enemy = GetPooledObject();
         enemy.transform.position = pos;
     }
-    public void SetEnemyObject(GameObject enemyObject)
-    {
-        SetObjectPool(enemyObject);
-    }
+    // public void SetEnemyObject(GameObject enemyObject)
+    // {
+    //     SetObjectPool(enemyObject);
+    // }
 }

@@ -15,12 +15,7 @@ public  class EnemyMovement : MonoBehaviour
         OnMove();
     }
     protected virtual void OnMove() {
-
-        Debug.DrawRay(transform.position,direction*speed,Color.black);
-        // transform.Translate(direction*Time.deltaTime*speed);
-        
         transform.position = Vector3.Lerp(transform.position,transform.position+direction*speed, Time.deltaTime);
-        
 
     }
 

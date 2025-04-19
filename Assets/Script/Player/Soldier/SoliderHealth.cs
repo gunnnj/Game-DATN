@@ -27,21 +27,22 @@ namespace Script.Player.Soldier
 
         public void Damage(int dame)
         {
-            float random = Random.Range(0f, 100f);
-            if (random > RateDodge)
-            {
-                int dameGet = dame >= Armor ? dame-Armor : 0;
-                CurrentHealth = CurrentHealth > dameGet ? CurrentHealth - dameGet : 0;
-            }
-            else
-            {
-                Debug.Log("Dodge");
-            }
             
-            if (CurrentHealth == 0)
-            {
-                Debug.Log("Player Die");
-            }
+            // float random = Random.Range(0f, 100f);
+            // if (random > RateDodge)
+            // {
+            //     int dameGet = dame >= Armor ? dame-Armor : 0;
+            //     CurrentHealth = CurrentHealth > dameGet ? CurrentHealth - dameGet : 0;
+            // }
+            // else
+            // {
+            //     Debug.Log("Dodge");
+            // }
+            
+            // if (CurrentHealth == 0)
+            // {
+            //     Debug.Log("Player Die");
+            // }
         }
 
         public void Heal(int amount)

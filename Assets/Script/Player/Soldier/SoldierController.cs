@@ -77,10 +77,10 @@ public class SoldierController : MonoBehaviour
         DirectionMovement = directionMovement;
     }
 
-    public void SetAttack(Collider collider)
+    public void SetAttack(Transform target)
     {
 
-        target = collider.transform;
+        this.target = target;
         ManagerState.ChangeState(Attack);
        
     }

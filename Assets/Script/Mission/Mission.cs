@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ public class Mission : MonoBehaviour
 
 
 
-    void Start()
+    async void Start()
     {
         btnOff = new Color(0.65f,0.65f,0.65f,1);
         btnOn = new Color(1,1,1,1);
@@ -26,17 +27,22 @@ public class Mission : MonoBehaviour
         manufacturingRoom = transform.Find("ManufacturingRoom");
         contactRoom = transform.Find("ContactRoom");
         buildRoom = transform.Find("BuildRoom");
+        ActiveContain(true);
+        await Task.Delay(1000);
+        ActiveContain(false);
+        BuildRoom();
+        
     }
 
     public void TurnMission(){
         tabMission.SetActive(!tabMission.activeSelf);
     }
     
-    private void DisActiveContain(){
-        trainRoom.Find("Contain").gameObject.SetActive(false);
-        manufacturingRoom.Find("Contain").gameObject.SetActive(false);
-        contactRoom.Find("Contain").gameObject.SetActive(false);
-        buildRoom.Find("Contain").gameObject.SetActive(false);
+    private void ActiveContain(bool value){
+        trainRoom.Find("Contain").gameObject.SetActive(value);
+        manufacturingRoom.Find("Contain").gameObject.SetActive(value);
+        contactRoom.Find("Contain").gameObject.SetActive(value);
+        buildRoom.Find("Contain").gameObject.SetActive(value);
     }
     private void SetColorBtnOff(){
         foreach(var item in imgBtns){
@@ -50,28 +56,28 @@ public class Mission : MonoBehaviour
 
     //Phòng huấn luyện
     public void TrainRoom(){
-        DisActiveContain();
+        ActiveContain(false);
         SetColorBtnOff();
         TurnOnContain(trainRoom);
 
     }
     //Phòng chế tạo
     public void ManufacturingRoom(){
-        DisActiveContain();
+        ActiveContain(false);
         SetColorBtnOff();
         TurnOnContain(manufacturingRoom);
 
     }
     //Phòng liên lạc, viện trợ
     public void ContactRoom(){
-        DisActiveContain();
+        ActiveContain(false);
         SetColorBtnOff();
         TurnOnContain(contactRoom);
 
     }
     //Phòng xây dựng
     public void BuildRoom(){
-        DisActiveContain();
+        ActiveContain(false);
         SetColorBtnOff();
         TurnOnContain(buildRoom);
 

@@ -5,9 +5,9 @@ public  class GoblinAttack : EnemyAttack
     [SerializeField] public float range = 2f;
     protected override void OnAttack(GameObject gameObject)
     {
+        
         base.OnAttack(gameObject);
 
-        
     }
     void OnTriggerStay(Collider other)
     {

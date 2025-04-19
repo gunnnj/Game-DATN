@@ -9,6 +9,7 @@ TagManager:
   - House
   - Ground
   - MainHouse
+  - Army
   layers:
   - Default
   - TransparentFX

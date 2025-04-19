@@ -14,7 +14,7 @@ public class ArmyPlayer : MonoBehaviour
 
     public GameObject playerPrefab;
     public List<SoldierController> Players { get; private set; }
-    public int GetAmoutPlayer()=>transform.childCount;
+    public int GetAmoutPlayer() => transform.childCount;
 
    
     [SerializeField] private PlayerUI playerUI;
@@ -165,6 +165,12 @@ public class ArmyPlayer : MonoBehaviour
         {
             Players[i].SetPostion(lineup[i]);
         }
+    }
+
+    public void SoldierDead(){
+        GameObject go = transform.GetChild(transform.childCount-1).gameObject;
+        Players.Remove(go.GetComponent<SoldierController>());
+        Destroy(go);
     }
 
 }

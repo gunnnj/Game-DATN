@@ -7,8 +7,16 @@ public class EnemyPoolingManager : MonoBehaviour
     [SerializeField] private int amountGoblin;
     [SerializeField] private float timeToSpawn;
     private Vector3 posSpawn;
+    private bool isSpawn =false;
 
-    void Start()
+    void Update()
+    {
+        // if((int)Time.time>10 && !isSpawn){
+        //     StartSpawn();
+        //     isSpawn = true;
+        // }
+    }
+    void StartSpawn()
     {
         StartCoroutine(SpawnEnemy());
     }
