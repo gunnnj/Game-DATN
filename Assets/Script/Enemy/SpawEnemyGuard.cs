@@ -10,13 +10,11 @@ public class SpawEnemyGuard : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Army")){
-            Debug.Log("SpawnEnemy");
             Spawn();
         }
     }
     public void Spawn(){
         for(int i=0; i<amoutEnemyGuard;i++){
-            Debug.Log("??");
             EnemyPooling.Instance.SetPositionEnemy(transform.position + new Vector3(2f,0f,2f));
         }
     }

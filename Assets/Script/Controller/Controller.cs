@@ -11,9 +11,11 @@ public class Controller : MonoBehaviour
     public GameObject barLoad;
     public GameObject option;
     public GameObject setting;
+    public static Controller Instance;
     
     void Start()
     {
+        Instance = this;
         SetActive(barLoad, false);
         SetActive(setting,false);
         SetActive(popUpResume,false);
@@ -28,7 +30,6 @@ public class Controller : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     public void LoadLevel(int level){
-        // SceneManager.LoadScene(level);
         StartCoroutine(LoadScene(level));
     }
     public IEnumerator LoadScene(int ind){

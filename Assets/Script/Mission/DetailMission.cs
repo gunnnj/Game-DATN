@@ -84,7 +84,7 @@ public class DetailMission : MonoBehaviour
 
             }
             else{
-                Debug.Log("In progress other mission");
+                Debug.Log("Can't do");
             }
             
         }

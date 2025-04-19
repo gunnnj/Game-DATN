@@ -18,7 +18,6 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
     void Start()
     {
         amoutSoldier = ArmyPlayer.Instance.GetAmoutPlayer();
-        Debug.Log(amoutSoldier);
         currentHealth = totalHP;
     }
     void OnDisable()
@@ -40,7 +39,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
             amoutSoldier --;
             Debug.Log(amoutSoldier);
             if(amoutSoldier==0){
-                Debug.Log("Lose");
+                GameEvent.loseGame?.Invoke();
             }
             else{
                 currentHealth = totalHP;
