@@ -22,7 +22,6 @@ namespace Script.Enemy
            
             if (currentHealth == 0)
             {
-                Debug.Log("Die");
                 Dead();
             }
         }
@@ -33,8 +32,8 @@ namespace Script.Enemy
         }
 
         public void Dead(){
+            GetComponent<SpawnCoin>().Spawn();
             gameObject.SetActive(false);
-            // EnemyPooling.Instance.SetObjectPool(gameObject);
         }
     }
 }

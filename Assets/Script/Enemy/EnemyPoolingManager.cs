@@ -11,10 +11,10 @@ public class EnemyPoolingManager : MonoBehaviour
 
     void Update()
     {
-        // if((int)Time.time>10 && !isSpawn){
-        //     StartSpawn();
-        //     isSpawn = true;
-        // }
+        if((int)Time.time>10 && !isSpawn){
+            StartSpawn();
+            isSpawn = true;
+        }
     }
     void StartSpawn()
     {

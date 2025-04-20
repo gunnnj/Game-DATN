@@ -11,24 +11,15 @@ public  class GoblinAttack : EnemyAttack
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && GetComponentInParent<EnemyControl>().Target == other.transform && Vector3.Distance(transform.position,other.transform.position)<=range )
+        if (other.CompareTag("MainHouse") && GetComponentInParent<EnemyControl>().Target == other.transform && Vector3.Distance(transform.position,other.transform.position)<=range )
         {
-            // if( Vector3.Distance(transform.position,other.transform.position)<=range){
-            //     Debug.Log("AttackPlayer");
-            //     OnAttack(other.gameObject);
-            // }
+
             OnAttack(other.gameObject);
             
         }
-        else if(other.CompareTag("MainHouse")&& GetComponentInParent<EnemyControl>().Target == other.transform){
+        else if(other.CompareTag("Player")&& GetComponentInParent<EnemyControl>().Target == other.transform && other!=null){
             OnAttack(other.gameObject);
         }
     }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position,range);
-    }
-
 
 }
