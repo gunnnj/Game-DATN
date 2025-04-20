@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SoldierLv01
   m_EditorClassIdentifier: 
   Health: 100
-  Damage: 10
+  Damage: 5
   LocalScale: 1
   RangeAttack: 10
-  SpeedAttack: 1
+  SpeedAttack: 2
+  Armor: 5
+  RateDodge: 5

@@ -7,15 +7,15 @@ namespace Script.Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
     {
-        [SerializeField]private int maxHealth = 100;
-        private int currentHealth = 100;
+        [SerializeField]private float maxHealth = 100;
+        private float currentHealth = 100;
 
         private void Start()
         {
             currentHealth = maxHealth;
         }
 
-        public void Damage(int dame)
+        public void Damage(float dame)
         {
             currentHealth  = currentHealth >= dame ? currentHealth-dame: 0;
            

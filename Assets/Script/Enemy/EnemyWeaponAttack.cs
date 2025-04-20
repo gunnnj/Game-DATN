@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.TowerDefend.HouseSO;
 using UnityEngine;
 
 public class EnemyWeaponAttack : MonoBehaviour
@@ -33,7 +34,13 @@ public class EnemyWeaponAttack : MonoBehaviour
     
         if (other.CompareTag("Player") || other.CompareTag("MainHouse"))
         {
-            other.GetComponentInParent<ArmyHealth>().Damage(damage);
+
+            if(other.GetComponentInParent<ArmyHealth>()!=null){
+                other.GetComponentInParent<ArmyHealth>().Damage(damage);
+            }
+            else{
+                // other.GetComponentInParent<HouseHealth>();
+            }
 
         }
 

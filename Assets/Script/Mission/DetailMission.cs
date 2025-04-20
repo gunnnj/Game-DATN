@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Script.Event;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,9 +41,10 @@ public class DetailMission : MonoBehaviour
             GetComponent<CompleteMission>().DisActiveGOComplete();
         }
     }
-    private void OnEnable()
+    private async void OnEnable()
     {
         SetStaticDetail();
+        await Task.Delay(1000);
         SetDynamicDetail();
         SetBtnForReq();
     }
@@ -60,7 +63,9 @@ public class DetailMission : MonoBehaviour
     }
     public void SetDynamicDetail(){
         amountSoldier = ArmyPlayer.Instance.GetAmoutPlayer();
-        amountGold = 20;
+        
+        amountGold = GameManage.Instance.GetGold();
+      
         txtReqSoldier.text = amountSoldier+"/"+missionSO.RequimentSoldier;
         txtReqGold.text = amountGold+"/"+missionSO.RequimentGold;
     }
@@ -74,7 +79,18 @@ public class DetailMission : MonoBehaviour
         }
     }
     
-    public void OnClickConfirm(){
+    public async void OnClickConfirm(){
+
+        for(int i=0; i<missionSO.RequimentSoldier;i++){
+            Debug.Log("-1 soldier");
+            await Task.Delay(200);
+            ArmyPlayer.Instance.SoldierDead();
+            ArmyEvent.soldierDead?.Invoke();
+        }
+
+        GameManage.Instance.MinusGold(missionSO.RequimentGold);
+
+
         if(btnConfirm.GetComponent<Image>().sprite == spriteOn){
             if(!ProgressBar.Instance.isProgress){
 
@@ -93,8 +109,13 @@ public class DetailMission : MonoBehaviour
         }
     }
 
-    private void SetCompleteMission(){
+    private async void SetCompleteMission(){
         missionSO.isComplete = true;
+        GameObject army = FindFirstObjectByType<ArmyPlayer>().gameObject;
+        for(int i=0; i<amountSoldier;i++){
+            await Task.Delay(200);
+            PlayerEvent.addPlayer?.Invoke(army.transform.position);
+        }
         GetComponent<CompleteMission>().ActiveGOComplete();
     }
 }

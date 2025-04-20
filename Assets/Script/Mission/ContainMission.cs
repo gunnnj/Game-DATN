@@ -12,7 +12,16 @@ public class ContainMission : MonoBehaviour
             missions.Add(transform.GetChild(i).gameObject);
         }
     } 
-
+    void OnEnable()
+    {
+        GameEvent.collectGold += SetDynamicMission;
+        GameEvent.minustGold += SetDynamicMission;
+    }
+    void OnDisable()
+    {
+        GameEvent.collectGold -= SetDynamicMission;
+        GameEvent.minustGold -= SetDynamicMission;
+    }
     public void SetDynamicMission(){
         foreach(var item in missions){
             item.GetComponent<DetailMission>().SetDynamicDetail();

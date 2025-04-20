@@ -17,6 +17,6 @@ MonoBehaviour:
   Describe: "Nh\xE0 ch\u1EE9c n\u0103ng ch\xEDnh"
   RequimentSoldier: 2
   RequimentGold: 10
-  TimeToComplete: 60
+  TimeToComplete: 10
   TypeMission: 0
-  isComplete: 0
+  isComplete: 1

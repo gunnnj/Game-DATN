@@ -30,7 +30,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
         amoutSoldier++;
     }
     
-    public void Damage(int dame)
+    public void Damage(float dame)
     {
         currentHealth -= dame;
         if(currentHealth<=0){

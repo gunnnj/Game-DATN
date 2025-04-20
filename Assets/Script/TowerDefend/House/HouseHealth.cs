@@ -9,9 +9,9 @@ namespace Script.TowerDefend.HouseSO
     {
         public HouseData HouseData { get; private set; }
         
-        public int maxHP { get; private set; }
+        public float maxHP { get; private set; }
         
-        private int currentHP;
+        private float currentHP;
 
         private void Start()
         {
@@ -22,7 +22,7 @@ namespace Script.TowerDefend.HouseSO
         }
 
 
-        public void Damage(int dame)
+        public void Damage(float dame)
         {
           
             currentHP  = currentHP >= dame ? currentHP-dame: 0;

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GameManage : MonoBehaviour
 {
-    public int gold;
+    public int gold = 0;
     public EnemyPoolingManager enemyPool;
     public static GameManage Instance;
     void OnEnable()
     {
         GameEvent.collectGold+= AddGold;
     }
-
-    void Start()
+    void Awake()
     {
         Instance = this;
         gold = 0;

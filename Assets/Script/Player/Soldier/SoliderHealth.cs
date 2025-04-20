@@ -25,7 +25,7 @@ namespace Script.Player.Soldier
         }
 
 
-        public void Damage(int dame)
+        public void Damage(float dame)
         {
             
             // float random = Random.Range(0f, 100f);
