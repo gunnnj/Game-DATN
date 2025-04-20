@@ -11,13 +11,14 @@ public  class GoblinAttack : EnemyAttack
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("MainHouse") && GetComponentInParent<EnemyControl>().Target == other.transform)
+        if (other.CompareTag("MainHouse") && GetComponentInParent<EnemyControl>().Target == other.transform )
         {
 
             OnAttack(other.gameObject);
             
         }
-        else if(other.CompareTag("Player")&& GetComponentInParent<EnemyControl>().Target == other.transform && other!=null && Vector3.Distance(transform.position,other.transform.position)<=range){
+        else if(other.CompareTag("Player")&& GetComponentInParent<EnemyControl>().Target == other.transform ){
+            
             OnAttack(other.gameObject);
         }
     }

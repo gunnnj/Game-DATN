@@ -17,6 +17,6 @@ MonoBehaviour:
   Describe: "C\xF3 kh\u1EA3 n\u0103ng t\u1EA5n c\xF4ng k\u1EBB \u0111\u1ECBch"
   RequimentSoldier: 2
   RequimentGold: 10
-  TimeToComplete: 60
+  TimeToComplete: 20
   TypeMission: 0
   isComplete: 0

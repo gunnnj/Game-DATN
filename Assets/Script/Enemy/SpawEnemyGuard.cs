@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpawEnemyGuard : MonoBehaviour
 {
     public int amoutEnemyGuard;
+    private bool isSpawn = false;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -14,9 +15,13 @@ public class SpawEnemyGuard : MonoBehaviour
         }
     }
     public void Spawn(){
-        for(int i=0; i<amoutEnemyGuard;i++){
-            EnemyPooling.Instance.SetPositionEnemy(transform.position + new Vector3(2f,0f,2f));
+        if(!isSpawn){
+            for(int i=0; i<amoutEnemyGuard;i++){
+                EnemyPooling.Instance.SetPositionEnemy(transform.position + new Vector3(2f,0f,2f));
+            }
+            isSpawn = true;
         }
+        
     }
 
     

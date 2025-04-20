@@ -25,7 +25,7 @@ public class FireDefend : MonoBehaviour
             FireEnemy(other.transform.position);
             other.GetComponent<EnemyHealth>().Damage(.2f);
         }
-        if(other == null){
+        if(other == null || !other.gameObject.activeSelf){
             line.enabled = false;
         }
     }

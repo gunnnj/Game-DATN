@@ -39,7 +39,7 @@ public class EnemyWeaponAttack : MonoBehaviour
                 other.GetComponentInParent<ArmyHealth>().Damage(damage);
             }
             else{
-                // other.GetComponentInParent<HouseHealth>();
+                other.GetComponentInParent<MainHouseHealth>().Damage(damage);
             }
 
         }

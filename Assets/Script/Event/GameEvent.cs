@@ -9,6 +9,9 @@ public class GameEvent
 
     public delegate void MinustGold();
     public static MinustGold minustGold;
+
+    public delegate void UpdateHealthHouse(float ratio);
+    public static UpdateHealthHouse updateHealthHouse;
     public delegate void WinGame();
     public static WinGame winGame;
 

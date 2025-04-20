@@ -14,11 +14,11 @@ public class EnemyFindTarget : MonoBehaviour
     // }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("MainHouse"))
         {
             SetTargetPlayer(other);
         }
-        else if(other.CompareTag("MainHouse")){
+        else if(other.CompareTag("Player")){
             SetTargetPlayer(other);
         }
     }

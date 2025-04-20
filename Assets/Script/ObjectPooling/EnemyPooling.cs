@@ -16,6 +16,7 @@ public class EnemyPooling : ObjectPooling
     public void SetPositionEnemy(Vector3 pos){
         GameObject enemy = GetPooledObject();
         enemy.transform.position = pos;
+        enemy.SetActive(true);
     }
     // public void SetEnemyObject(GameObject enemyObject)
     // {

@@ -11,9 +11,10 @@ public class GoldPooling : ObjectPooling
         Instance = this;
     }
     public void SetPositionGold(Vector3 position){
-        float random = Random.Range(1,5);
+        float random = Random.Range(-1,2);
+        float random1 = Random.Range(-1,2);
         GameObject coin = GetPooledObject();
-        coin.transform.position = position + new Vector3(random,0.2f,random);
+        coin.transform.position = position + new Vector3(random,0.2f,random1);
         coin.SetActive(true);
     }
 }
