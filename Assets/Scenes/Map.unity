@@ -3133,9 +3133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Home
-
-'
+  m_text: "S\u1EA3nh"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3487,7 +3485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RESUME
+  m_text: "Ti\u1EBFp t\u1EE5c"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4562,9 +4560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HOME
-
-'
+  m_text: "S\u1EA3nh"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6461,6 +6457,7 @@ GameObject:
   - component: {fileID: 479098300}
   - component: {fileID: 479098301}
   - component: {fileID: 479098302}
+  - component: {fileID: 479098303}
   m_Layer: 0
   m_Name: Army
   m_TagString: Army
@@ -6585,6 +6582,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHP: 100
+  currentHealth: 0
+--- !u!114 &479098303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479098295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c549fb048425b34b95ce55c2b6c2f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana: 100
 --- !u!4 &479226430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8749564850823685845, guid: 2651906ce9e9a8d4ea99945d12f1af52, type: 3}
@@ -6605,6 +6616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492118655}
   - component: {fileID: 492118656}
+  - component: {fileID: 492118657}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -6684,6 +6696,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &492118657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492118654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed335aadd5c3ba441b0a0bc055b5537d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaBar: {fileID: 492118656}
+  maxMana: 100
+  ratio: 0
 --- !u!1 &498921547
 GameObject:
   m_ObjectHideFlags: 0
@@ -12652,7 +12679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &907058371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14643,7 +14670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: "M\xE0n ti\u1EBFp"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19574,7 +19601,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1361566788}
   - component: {fileID: 1361566791}
-  - component: {fileID: 1361566790}
   - component: {fileID: 1361566789}
   m_Layer: 5
   m_Name: HPHouse
@@ -19602,7 +19628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881, y: -43.825}
+  m_AnchoredPosition: {x: 881, y: -43.82495}
   m_SizeDelta: {x: 121.8399, y: 22.947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361566789
@@ -19619,21 +19645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 1361566791}
   warning: {fileID: 1201592083}
---- !u!114 &1361566790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361566787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88d30360057cda419a214ae3915d296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amoutSoldier: {fileID: 1151585865}
-  hpBar: {fileID: 1361566791}
-  army: {fileID: 479098295}
 --- !u!114 &1361566791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21019,9 +21030,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Play again
-
-'
+  m_text: "Ch\u01A1i l\u1EA1i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28662,9 +28671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Home
-
-'
+  m_text: "S\u1EA3nh"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

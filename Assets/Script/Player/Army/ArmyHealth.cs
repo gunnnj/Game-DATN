@@ -6,19 +6,22 @@ using Script.Interface;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArmyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
+public class ArmyHealth : MonoBehaviour, IHealthDamage
 {
-    [SerializeField] private int totalHP;
-    private float currentHealth;
+    [SerializeField] public int totalHP;
+    public float currentHealth;
     private int amoutSoldier;
+    public static ArmyHealth Instance;
     void OnEnable()
     {
         PlayerEvent.addPlayer += AddSoldier;
     }
     void Start()
     {
+        Instance = this;
         amoutSoldier = ArmyPlayer.Instance.GetAmoutPlayer();
         currentHealth = totalHP;
+        StartCoroutine(RegenerateHP());
     }
     void OnDisable()
     {
@@ -47,12 +50,16 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
         }
     }
 
-    public float GetPresentHealth()
+    private IEnumerator RegenerateHP()
     {
-        return currentHealth/totalHP;
+        while (true) 
+        {
+            yield return new WaitForSeconds(1f); 
+            if(currentHealth<100){
+                currentHealth += 1; 
+            }  
+        }
     }
-    public void SetTotalHp(){
 
-    }
     
 }

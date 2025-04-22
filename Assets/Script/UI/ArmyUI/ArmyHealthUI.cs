@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Script.Event;
 using Script.Interface;
 using TMPro;
@@ -12,24 +13,25 @@ public class ArmyHealthUI : MonoBehaviour
     public TMP_Text amoutSoldier;
     public Slider hpBar;
     public GameObject army;
-    private IGetPresentHealth presentHealth;
     private int amoutSol;
+    private float maxHP;
     void OnEnable()
     {
         ArmyEvent.soldierDead += SetAmoutSoldier;
         PlayerEvent.addPlayer += AddSoldier;
     }
 
-    void Start()
+    async void Start()
     {
-        presentHealth = army.GetComponent<IGetPresentHealth>();
         amoutSol = ArmyPlayer.Instance.GetAmoutPlayer();
         amoutSoldier.text = "X"+amoutSol;
+        await Task.Delay(100);
+        maxHP = ArmyHealth.Instance.totalHP;
         
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        hpBar.value = presentHealth.GetPresentHealth();
+        hpBar.value = ArmyHealth.Instance.currentHealth/maxHP;
     }
     void OnDisable()
     {

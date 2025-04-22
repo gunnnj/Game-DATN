@@ -8,6 +8,7 @@ using Script.Weapon;
 
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Script.Event;
 
 public class SoldierController : MonoBehaviour
 {
@@ -79,10 +80,10 @@ public class SoldierController : MonoBehaviour
 
     public void SetAttack(Transform target)
     {
-
+        
         this.target = target;
         ManagerState.ChangeState(Attack);
-       
+
     }
 
 
@@ -90,6 +91,7 @@ public class SoldierController : MonoBehaviour
     // Add by Event of Animator;
     public void SpawnWeapon()
     {
+        ArmyEvent.manaCost?.Invoke();
         GameObject weapon = WeaponPooling.Instance.GetPooledObject();
         weapon.transform.position = WeaponTarget.position;
         weapon.transform.rotation = WeaponTarget.rotation;

@@ -14,7 +14,7 @@ namespace Script.Event
         public delegate void SoldierDead();
         public static SoldierDead soldierDead; 
 
-        // public delegate void AddSoldier();
-        // public static AddSoldier addSoldier;
+        public delegate void ManaCost();
+        public static ManaCost manaCost;
     }
 }
