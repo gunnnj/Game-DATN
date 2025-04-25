@@ -34,6 +34,7 @@ namespace Script.Enemy
         public void Dead(){
             GetComponent<SpawnCoin>().Spawn();
             gameObject.SetActive(false);
+            gameObject.transform.position = Vector3.zero;
         }
     }
 }

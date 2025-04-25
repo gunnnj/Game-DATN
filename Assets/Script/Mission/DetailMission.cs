@@ -71,7 +71,7 @@ public class DetailMission : MonoBehaviour
     }
 
     public void SetBtnForReq(){
-        if(amountSoldier>=missionSO.RequimentSoldier && amountGold>=missionSO.RequimentGold){
+        if(amountSoldier>missionSO.RequimentSoldier && amountGold>=missionSO.RequimentGold){
             btnConfirm.GetComponent<Image>().sprite = spriteOn;
         }
         else{

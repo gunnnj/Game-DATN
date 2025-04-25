@@ -91,6 +91,7 @@ public class SoldierController : MonoBehaviour
     // Add by Event of Animator;
     public void SpawnWeapon()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ThrowWeapon);
         ArmyEvent.manaCost?.Invoke();
         GameObject weapon = WeaponPooling.Instance.GetPooledObject();
         weapon.transform.position = WeaponTarget.position;

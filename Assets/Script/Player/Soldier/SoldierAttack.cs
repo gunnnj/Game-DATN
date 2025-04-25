@@ -25,26 +25,9 @@ public class SoldierAttack : MonoBehaviour
         soldierController = GetComponent<SoldierController>();
     }
 
-    private void Update()
-    {
-        // CheckAttack();
-    }
     public void SetTargetEnemy(Transform position){
         OnAttack(position);
     }
-
-    // private void CheckAttack()
-    // {
-    //     var hit = Physics.OverlapSphere(transform.position, soldierController.SoldierData.RangeAttack, enemyLayer);
-    //     if (hit.Length > 0)
-    //     {
-    //         OnAttack(hit[0]);
-    //     }
-        
-  
-    // }
-
-
 
     private void OnAttack(Transform target)
     {
@@ -54,13 +37,4 @@ public class SoldierAttack : MonoBehaviour
         }
       
     }
-
-    // private void OnDrawGizmosSelected()
-    // {
-    //     Gizmos.color = Color.yellow;
-    //     Gizmos.DrawWireSphere(transform.position,soldierController.SoldierData.RangeAttack);
-    // }
-
-
-
 }
