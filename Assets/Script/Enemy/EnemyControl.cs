@@ -65,6 +65,12 @@ public class EnemyControl : MonoBehaviour
             enemyMovement.SetDirection(Vector3.zero);
         }
     }
+    public void ResetState(){
+        SetTarget(null);
+        isAttack = false;
+        animator.SetBool("IsMove", false);    
+        animator.SetBool("IsAttack", false);
+    }
 
     
 

@@ -12,9 +12,15 @@ public class GameEvent
 
     public delegate void UpdateHealthHouse(float ratio);
     public static UpdateHealthHouse updateHealthHouse;
+
+    public delegate void CompleteBuildHouse();
+    public static CompleteBuildHouse completeBuildHouse;
+
     public delegate void WinGame();
     public static WinGame winGame;
+    public static bool isWin = false;
 
     public delegate void LoseGame();
     public static LoseGame loseGame;
+    public static bool isLose = false;
 }

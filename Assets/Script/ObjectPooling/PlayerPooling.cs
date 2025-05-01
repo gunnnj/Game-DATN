@@ -13,7 +13,10 @@ public class PlayerPooling : ObjectPooling
     }
 
     public GameObject GetPlayer(Vector3 position, Transform parrent){
-        GameObject soldier = this.GetPooledObject();
+        GameObject soldier = GetPooledObject();
+        if(soldier==null){
+            soldier = Instantiate(objectToPool, position, Quaternion.identity);
+        }
         soldier.transform.position = position;
         soldier.transform.SetParent(parrent);
         soldier.SetActive(true);

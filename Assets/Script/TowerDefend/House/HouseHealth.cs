@@ -36,6 +36,7 @@ namespace Script.TowerDefend.HouseSO
                 }
                 GetComponent<SpawnCoin>().Spawn();
                 gameObject.SetActive(false);
+                transform.position = Vector3.zero;
                 
             }
         }

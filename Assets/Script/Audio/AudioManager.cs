@@ -14,8 +14,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public Sprite imgOff;
     [SerializeField] public Button btnSound;
     [SerializeField] public Button btnMusic;
-    public bool isSoundOn;
-    public bool isMusicOn;
+    private bool isSoundOn;
+    private bool isMusicOn;
     public static AudioManager Instance;
 
     void Start()
@@ -23,8 +23,12 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         isSoundOn = true;
         isMusicOn = true;
-        btnSound.onClick.AddListener(SettingSound);
-        btnMusic.onClick.AddListener(SettingMusic);
+
+        btnSound?.onClick.AddListener(SettingSound);
+
+        btnMusic?.onClick.AddListener(SettingMusic);
+        
+        
     }
     void Update()
     {
@@ -76,7 +80,6 @@ public class AudioManager : MonoBehaviour
             btnSound.GetComponent<Image>().sprite = imgOn;
         }
         else{
-            Debug.Log("?");
             btnSound.transform.DOLocalMoveX(326f, 0.2f).SetEase(Ease.Linear);
             btnSound.GetComponent<Image>().sprite = imgOff;
         }
@@ -89,7 +92,6 @@ public class AudioManager : MonoBehaviour
             btnMusic.GetComponent<Image>().sprite = imgOn;
         }
         else{
-            Debug.Log("?");
             btnMusic.transform.DOLocalMoveX(326f, 0.2f).SetEase(Ease.Linear);
             btnMusic.GetComponent<Image>().sprite = imgOff;
         }

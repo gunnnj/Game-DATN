@@ -16,7 +16,7 @@ public class EnemyPoolingManager : MonoBehaviour
             isSpawn = true;
         }
     }
-    void StartSpawn()
+    public void StartSpawn()
     {
         StartCoroutine(SpawnEnemy());
     }

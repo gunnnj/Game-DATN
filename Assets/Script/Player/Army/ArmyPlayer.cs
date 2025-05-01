@@ -34,7 +34,7 @@ public class ArmyPlayer : MonoBehaviour
 
     #endregion
     
-
+    
     private void Awake()
     {
         Instance = this;
@@ -55,7 +55,11 @@ public class ArmyPlayer : MonoBehaviour
 
 
     }
-
+    private void OnEnable()
+    {
+        PlayerEvent.addPlayer += AddPlayer;
+        ArmyEvent.ChangeLineUpArmy += ChangeLineUpArmy;
+    }
 
     private void Start()
     {
@@ -72,11 +76,7 @@ public class ArmyPlayer : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        PlayerEvent.addPlayer += AddPlayer;
-        ArmyEvent.ChangeLineUpArmy += ChangeLineUpArmy;
-    }
+
 
     private void OnDisable()
     {
@@ -86,14 +86,15 @@ public class ArmyPlayer : MonoBehaviour
 
     private void AddPlayer(Vector3 postion)
     {
-        GameObject soldier = PlayerPooling.Instance.GetPlayer(postion,transform);
+        // GameObject soldier = PlayerPooling.Instance.GetPlayer(postion,transform);
+        GameObject soldier = Instantiate(playerPrefab,postion,Quaternion.identity,transform);
     
         Players.Add(soldier.GetComponent<SoldierController>());
         ChangeLineUpArmy(this.lineUp);
     }
-
     private void ChangeLineUpArmy(LineUp lineUp)
     {
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ChangeLineUp);
         if (lineUp == LineUp.Horizontal)
         {
             ManagerLineUp.ChangeLineUp(this.HorizontalLineUp);
@@ -116,9 +117,6 @@ public class ArmyPlayer : MonoBehaviour
 
         this.lineUp = lineUp;
     }
-
-    
-
     public void SetHorizontal()
     {
         List<Vector3> lineup = ArmyFormation.Horizontal(Players.Count);
@@ -127,8 +125,6 @@ public class ArmyPlayer : MonoBehaviour
         }
         
     }
-
-
     public void SetVertical()
     {
         List<Vector3> lineup = ArmyFormation.Vertical(Players.Count);
@@ -140,8 +136,6 @@ public class ArmyPlayer : MonoBehaviour
 
         }
     }
-
-
     public void SetTriangle()
     {
         List<Vector3> lineup = ArmyFormation.Triangle(Players.Count);
@@ -154,8 +148,6 @@ public class ArmyPlayer : MonoBehaviour
 
         }
     }
-
-
     public void SetRectangle()
     {
         List<Vector3> lineup = ArmyFormation.Rectangle(Players.Count);
@@ -164,7 +156,6 @@ public class ArmyPlayer : MonoBehaviour
             Players[i].SetPostion(lineup[i]);
         }
     }
-
     public void SoldierDead(){
         GameObject go = transform.GetChild(transform.childCount-1).gameObject;
         Players.Remove(go.GetComponent<SoldierController>());

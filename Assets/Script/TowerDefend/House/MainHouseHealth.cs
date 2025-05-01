@@ -16,10 +16,18 @@ public class MainHouseHealth :MonoBehaviour, IHealthDamage
     public void Damage(float dame)
     {
         currentHp -= dame;
+        // AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         GameEvent.updateHealthHouse?.Invoke(currentHp/HPMax);
         if(currentHp<=0){
-            Debug.Log("Lose destroyed mainhouse");
-            GameEvent.loseGame?.Invoke();
+            
+            if(!GameEvent.isLose){
+                GameEvent.loseGame?.Invoke();
+                AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
+                Debug.Log("Lose destroyed mainhouse");
+                GameEvent.isLose = true;
+            }
+            
+            
         } 
     }
 

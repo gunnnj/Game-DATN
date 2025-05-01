@@ -26,7 +26,6 @@ public class ArmyMovement : MonoBehaviour, IMovement
     {
         Movement();
 
-
     }
 
     private void Movement()
@@ -41,7 +40,6 @@ public class ArmyMovement : MonoBehaviour, IMovement
     public void OnMove(Vector3 direction)
     {
         directionMovement = direction;
-        //transform.Translate(direction*Time.deltaTime);
     }
 
 

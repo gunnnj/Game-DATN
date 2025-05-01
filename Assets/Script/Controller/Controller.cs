@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
-    public Image image;
     public GameObject popUpResume;
-    public GameObject barLoad;
+    public Slider barLoading;
     public GameObject option;
     public GameObject setting;
     public static Controller Instance;
@@ -16,7 +15,9 @@ public class Controller : MonoBehaviour
     void Start()
     {
         Instance = this;
-        SetActive(barLoad, false);
+        if(barLoading!=null){
+            SetActive(barLoading.gameObject,false);
+        }
         SetActive(setting,false);
         SetActive(popUpResume,false);
         Time.timeScale =1;
@@ -34,13 +35,13 @@ public class Controller : MonoBehaviour
     }
     public IEnumerator LoadScene(int ind){
         SetActive(option,false);
-        SetActive(barLoad,true);
+        SetActive(barLoading.gameObject,true);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(ind);
 
         while (!asyncLoad.isDone)
         {
             float progressAsyn = Mathf.Clamp01(asyncLoad.progress/0.9f);
-            image.fillAmount = progressAsyn;
+            barLoading.value = progressAsyn;
             yield return null;
         }
         yield return null;

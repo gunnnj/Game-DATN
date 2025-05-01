@@ -28,7 +28,7 @@ public class Mission : MonoBehaviour
         contactRoom = transform.Find("ContactRoom");
         buildRoom = transform.Find("BuildRoom");
         ActiveContain(true);
-        await Task.Delay(1000);
+        await Task.Delay(1500);
         ActiveContain(false);
         BuildRoom();
         

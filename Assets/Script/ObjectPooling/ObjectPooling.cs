@@ -7,7 +7,7 @@ namespace Script.ObjectPooling
     {
         
         public List<GameObject> pooledObjects;
-        [SerializeField]private GameObject objectToPool;
+        [SerializeField]public GameObject objectToPool;
      
         
 

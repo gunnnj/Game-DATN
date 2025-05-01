@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
     {
         if(other.CompareTag("Player")){
             GameEvent.collectGold?.Invoke();
+            AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.CollectCoin);
             gameObject.SetActive(false);
         }
     }

@@ -33,7 +33,6 @@ public class EnemyAttack : MonoBehaviour
         {
             GetComponentInParent<EnemyControl>().isAttack = false;
 
-
         }
     }
 

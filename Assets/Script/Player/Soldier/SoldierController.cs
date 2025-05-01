@@ -91,14 +91,13 @@ public class SoldierController : MonoBehaviour
     // Add by Event of Animator;
     public void SpawnWeapon()
     {
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ThrowWeapon);
         ArmyEvent.manaCost?.Invoke();
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ThrowWeapon);
         GameObject weapon = WeaponPooling.Instance.GetPooledObject();
         weapon.transform.position = WeaponTarget.position;
         weapon.transform.rotation = WeaponTarget.rotation;
         this.WeaponTarget.gameObject.SetActive(false);
         weapon.SetActive(true);
-        
         Vector3 targetPosition = new Vector3(target.position.x + Random.Range(-0.3f,0.3f), target.position.y, target.position.z +  Random.Range(-0.3f,0.3f));
         weapon.GetComponent<WeaponMovement>().SetTarget(targetPosition, weapon.transform.position, 1.5f);
         weapon.GetComponent<WeaponDealDamage>().SetDamage(SoldierData.Damage);

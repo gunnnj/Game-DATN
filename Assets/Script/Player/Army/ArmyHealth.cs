@@ -36,13 +36,19 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
     public void Damage(float dame)
     {
         currentHealth -= dame;
+        // AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Gethit);
         if(currentHealth<=0){
             ArmyPlayer.Instance.SoldierDead();
             ArmyEvent.soldierDead?.Invoke();
             amoutSoldier --;
             Debug.Log(amoutSoldier);
             if(amoutSoldier==0){
-                GameEvent.loseGame?.Invoke();
+                if(!GameEvent.isLose){
+                    GameEvent.loseGame?.Invoke();
+                    GameEvent.isLose = true;
+                    AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
+                }
+                
             }
             else{
                 currentHealth = totalHP;

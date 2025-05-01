@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class ZombieExplodeAttack : EnemyAttack
 {
     public GameObject explode;
+    private bool isExplode;
     protected override void OnAttack(GameObject target)
     {
         base.OnAttack(target);
@@ -11,8 +13,16 @@ public class ZombieExplodeAttack : EnemyAttack
     }
 
     public void DestroyEnemy(){
+        if(isExplode) return;
         Instantiate(explode,transform.position,Quaternion.identity);
+        isExplode = true;
         transform.parent.gameObject.SetActive(false);
-        Debug.Log("Take dame player");
+        // Debug.Log("Take dame player");
     }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.CompareTag("Player")){
+    //         other.GetComponent<IHealthDamage>().Damage(damage);
+    //     }
+    // }
 }

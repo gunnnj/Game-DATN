@@ -41,12 +41,11 @@ public class DetailMission : MonoBehaviour
             GetComponent<CompleteMission>().DisActiveGOComplete();
         }
     }
-    private async void OnEnable()
+    private void OnEnable()
     {
         SetStaticDetail();
-        await Task.Delay(1000);
         SetDynamicDetail();
-        SetBtnForReq();
+        // SetBtnForReq();
     }
     
     public void UpdateMission(){
@@ -61,13 +60,14 @@ public class DetailMission : MonoBehaviour
         describeM.text = missionSO.Describe;
         txtReqTime.text = missionSO.TimeToComplete+"";
     }
-    public void SetDynamicDetail(){
+    public async void SetDynamicDetail(){
         amountSoldier = ArmyPlayer.Instance.GetAmoutPlayer();
-        
+        await Task.Delay(200);
         amountGold = GameManage.Instance.GetGold();
       
         txtReqSoldier.text = amountSoldier+"/"+missionSO.RequimentSoldier;
         txtReqGold.text = amountGold+"/"+missionSO.RequimentGold;
+        SetBtnForReq();
     }
 
     public void SetBtnForReq(){
@@ -117,5 +117,9 @@ public class DetailMission : MonoBehaviour
             PlayerEvent.addPlayer?.Invoke(army.transform.position);
         }
         GetComponent<CompleteMission>().ActiveGOComplete();
+        if(missionSO.ImageMission.name == "MH1"){
+            ToastUI.Instance.DisplayToast("Nhà chính đã hoàn thành!");
+            GameEvent.completeBuildHouse?.Invoke();
+        }
     }
 }

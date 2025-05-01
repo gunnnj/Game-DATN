@@ -35,6 +35,8 @@ namespace Script.Enemy
             GetComponent<SpawnCoin>().Spawn();
             gameObject.SetActive(false);
             gameObject.transform.position = Vector3.zero;
+            currentHealth = maxHealth;
+            GetComponent<EnemyControl>().ResetState();
         }
     }
 }
