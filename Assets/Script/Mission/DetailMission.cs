@@ -41,9 +41,10 @@ public class DetailMission : MonoBehaviour
             GetComponent<CompleteMission>().DisActiveGOComplete();
         }
     }
-    private void OnEnable()
+    private async void OnEnable()
     {
         SetStaticDetail();
+        await Task.Delay(1000);
         SetDynamicDetail();
         // SetBtnForReq();
     }
@@ -112,7 +113,7 @@ public class DetailMission : MonoBehaviour
     private async void SetCompleteMission(){
         missionSO.isComplete = true;
         GameObject army = FindFirstObjectByType<ArmyPlayer>().gameObject;
-        for(int i=0; i<amountSoldier;i++){
+        for(int i=0; i<missionSO.RequimentSoldier;i++){
             await Task.Delay(200);
             PlayerEvent.addPlayer?.Invoke(army.transform.position);
         }

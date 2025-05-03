@@ -654,10 +654,10 @@ GameObject:
   - component: {fileID: 2962000958137646762}
   - component: {fileID: 1666167809625518297}
   - component: {fileID: 8980484580232575605}
-  - component: {fileID: 5730766722348947817}
   - component: {fileID: 7841098403987997577}
   - component: {fileID: 1354421428466705446}
-  - component: {fileID: 2680728505610356572}
+  - component: {fileID: 4646357601527533506}
+  - component: {fileID: 3818122152253225269}
   m_Layer: 7
   m_Name: Goblin 1
   m_TagString: Enemy
@@ -754,19 +754,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!114 &5730766722348947817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3850722837182222187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867de8cc36f947f5b61fc2d49f1fcc90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!54 &7841098403987997577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -807,7 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7278830919114107949}
---- !u!114 &2680728505610356572
+--- !u!114 &4646357601527533506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -819,7 +806,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba9e91815de7114b83e733c5c01dcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amoutCoin: 3
+  amoutCoin: 10
+--- !u!114 &3818122152253225269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850722837182222187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904e0589a83bbaa41a6435ad49a7116e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &3850999009877595791
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class ManagerUI : MonoBehaviour
 
     private void WinGame()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Winning);
         winUI.SetActive(true);
     }
     public void OnClickHome(){

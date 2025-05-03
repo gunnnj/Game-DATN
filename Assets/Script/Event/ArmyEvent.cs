@@ -16,5 +16,9 @@ namespace Script.Event
 
         public delegate void ManaCost();
         public static ManaCost manaCost;
+        public delegate void Heal();
+        public static Heal heal;
+        public delegate void Drone();
+        public static Drone drone;
     }
 }

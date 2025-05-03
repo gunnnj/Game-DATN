@@ -10,13 +10,9 @@ public class ParticleCollision : MonoBehaviour
         {
             
             Debug.Log("Particle hit: " + other.name);
+            other.GetComponent<IHealthDamage>().Damage(20f);
             
         }
-        if (other.CompareTag("Player"))
-        {
-            
-            Debug.Log("Particle hit: " + other.name);
-            
-        }
+        
     }
 }

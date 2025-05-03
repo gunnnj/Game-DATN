@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d746f7aa190305c44956a60610ec3dde, type: 3}
   m_Name: Medicine
   m_EditorClassIdentifier: 
-  NameMission: "Thu\u1ED1c"
+  NameMission: "D\u01B0\u1EE3c ph\u1EA9m"
   ImageMission: {fileID: 21300000, guid: ff877e1492dbce147ba93120f3ab9b5f, type: 3}
-  Describe: "Thu\u1ED1c t\u0103ng s\u1EE9c m\u1EA1nh"
+  Describe: "H\u1ED3i m\u1ED9t ph\u1EA7n m\xE1u\\n30s l\u1EB7p l\u1EA1i"
   RequimentSoldier: 1
   RequimentGold: 20
   TimeToComplete: 40

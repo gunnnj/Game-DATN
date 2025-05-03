@@ -15,6 +15,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
     void OnEnable()
     {
         PlayerEvent.addPlayer += AddSoldier;
+        ArmyEvent.heal += Heal;
     }
     void Start()
     {
@@ -26,6 +27,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
     void OnDisable()
     {
         PlayerEvent.addPlayer -= AddSoldier;
+        ArmyEvent.heal -= Heal;
     }
 
     private void AddSoldier(Vector3 postion)
@@ -54,6 +56,9 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
                 currentHealth = totalHP;
             }
         }
+    }
+    public void Heal(){
+        currentHealth+=50;
     }
 
     private IEnumerator RegenerateHP()

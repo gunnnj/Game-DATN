@@ -6,19 +6,25 @@ public class EnemyPoolingManager : MonoBehaviour
 {
     [SerializeField] private int amountGoblin;
     [SerializeField] private float timeToSpawn;
+    [SerializeField] public EnemyPooling[] enemyPoolings;
+    public SpawnBoss spawnBoss;
     private Vector3 posSpawn;
     private bool isSpawn =false;
+    public static EnemyPoolingManager Instance;
+
+    void Start()
+    {
+        Instance = this;
+    }
 
     void Update()
     {
-        if((int)Time.time>10 && !isSpawn){
-            StartSpawn();
-            isSpawn = true;
-        }
+
     }
+    [ContextMenu("Spawn")]
     public void StartSpawn()
     {
-        StartCoroutine(SpawnEnemy());
+        // StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
@@ -27,10 +33,17 @@ public class EnemyPoolingManager : MonoBehaviour
         while(amountGoblin>0){   
             int dirX = Random.Range(1, 11);
             posSpawn = transform.position+ new Vector3(dirX,0f,0f);   
-            EnemyPooling.Instance.SetPositionEnemy(posSpawn);
+            enemyPoolings[0].SetPositionEnemy(posSpawn);
+            dirX = Random.Range(1, 11);
+            posSpawn = transform.position+ new Vector3(dirX,0f,0f);  
+            enemyPoolings[1].SetPositionEnemy(posSpawn);
             yield return new WaitForSeconds(timeToSpawn);
             amountGoblin--;
         }
         
+    }
+    [ContextMenu("SpawnBoss")]
+    public void SpawnBoss(){
+        spawnBoss.SpawnBossArc(transform.position);
     }
 }

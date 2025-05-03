@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZombieExplodeAttack : EnemyAttack
@@ -12,17 +13,15 @@ public class ZombieExplodeAttack : EnemyAttack
         Invoke(nameof(DestroyEnemy),.5f);
     }
 
-    public void DestroyEnemy(){
+    public async void DestroyEnemy(){
         if(isExplode) return;
         Instantiate(explode,transform.position,Quaternion.identity);
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Explode);
         isExplode = true;
         transform.parent.gameObject.SetActive(false);
-        // Debug.Log("Take dame player");
+        transform.parent.position = Vector3.zero;
+        await Task.Delay(1000);
+        isExplode = false;
     }
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.CompareTag("Player")){
-    //         other.GetComponent<IHealthDamage>().Damage(damage);
-    //     }
-    // }
+
 }

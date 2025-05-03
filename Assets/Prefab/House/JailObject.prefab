@@ -2463,6 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amoutEnemyGuard: 1
+  enemyPooling: {fileID: 0}
 --- !u!1 &205526253662468087
 GameObject:
   m_ObjectHideFlags: 0
@@ -51342,7 +51343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6038980514543527728}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -49.3, y: 88.094826, z: -73.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -51409,7 +51410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba9e91815de7114b83e733c5c01dcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amoutCoin: 5
+  amoutCoin: 10
 --- !u!1 &6042704724056247789
 GameObject:
   m_ObjectHideFlags: 0

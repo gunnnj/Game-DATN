@@ -31,7 +31,7 @@ public class SoldierAttack : MonoBehaviour
 
     private void OnAttack(Transform target)
     {
-        if(soldierController.DirectionMovement.magnitude <= 0.3 && ArmyMana.Instance.mana>=2)
+        if(soldierController.DirectionMovement.magnitude <= 0.3)
         {
             soldierController.SetAttack(target);
         }

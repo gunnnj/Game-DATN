@@ -5,21 +5,16 @@ using UnityEngine;
 
 public class EnemyPooling : ObjectPooling
 {
-    public static EnemyPooling Instance;
-    // public int amountTurnEnemy = 10;
+
 
     public override void Awake()
     {
         base.Awake();
-        Instance = this;
     }
     public void SetPositionEnemy(Vector3 pos){
         GameObject enemy = GetPooledObject();
         enemy.transform.position = pos;
         enemy.SetActive(true);
     }
-    // public void SetEnemyObject(GameObject enemyObject)
-    // {
-    //     SetObjectPool(enemyObject);
-    // }
+
 }

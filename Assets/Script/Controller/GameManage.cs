@@ -60,7 +60,7 @@ public class GameManage : MonoBehaviour
             ArmyMana.Instance.RecoveryMana();
         }
         else{
-            ToastUI.Instance.DisplayToast("Hồi đầy thể lực!");
+            // ToastUI.Instance.DisplayToast("Hồi đầy thể lực!");
             CamPlayer.Priority=10;
             CamRest.Priority = 0;
             ArmyHide(false);

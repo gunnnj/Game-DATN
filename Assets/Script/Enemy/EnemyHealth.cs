@@ -7,10 +7,11 @@ namespace Script.Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealthDamage, IGetPresentHealth
     {
-        [SerializeField]private float maxHealth = 100;
+        public float maxHealth = 100;
+        // private const string nameBossArc2 = "Golem(Clone)";
         private float currentHealth = 100;
 
-        private void Start()
+        public virtual void Start()
         {
             currentHealth = maxHealth;
         }
@@ -31,8 +32,11 @@ namespace Script.Enemy
             return (float) currentHealth / maxHealth;
         }
 
-        public void Dead(){
-            GetComponent<SpawnCoin>().Spawn();
+        public virtual void Dead(){
+            GetComponent<SpawnCoin>()?.Spawn();
+            // if(transform.name == nameBossArc2){
+            //     GameEvent.winGame?.Invoke();
+            // }
             gameObject.SetActive(false);
             gameObject.transform.position = Vector3.zero;
             currentHealth = maxHealth;

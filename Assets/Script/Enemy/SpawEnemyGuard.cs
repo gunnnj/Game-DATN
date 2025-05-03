@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Script.TowerDefend.HouseSO;
 using UnityEngine;
 
@@ -7,6 +8,13 @@ public class SpawEnemyGuard : MonoBehaviour
 {
     public int amoutEnemyGuard;
     private bool isSpawn = false;
+    public EnemyPooling enemyPooling;
+
+    async void Start()
+    {
+        await Task.Delay(1000);
+        enemyPooling = EnemyPoolingManager.Instance.enemyPoolings[0];
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -17,7 +25,7 @@ public class SpawEnemyGuard : MonoBehaviour
     public void Spawn(){
         if(!isSpawn){
             for(int i=0; i<amoutEnemyGuard;i++){
-                EnemyPooling.Instance.SetPositionEnemy(transform.position + new Vector3(2f,0f,2f));
+                enemyPooling.SetPositionEnemy(transform.position + new Vector3(2f,0f,2f));
             }
             isSpawn = true;
         }

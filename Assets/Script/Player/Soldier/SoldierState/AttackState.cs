@@ -20,7 +20,6 @@ namespace Script.Player.Soldier.SoldierState
 
         public override void OnEnter()
         {
-            if(ArmyMana.Instance.mana<=3) return;
             base.OnEnter();
             
             soldierController.Animator.speed = soldierData.SpeedAttack;
