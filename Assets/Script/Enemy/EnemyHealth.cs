@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Script.Interface;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,6 +11,7 @@ namespace Script.Enemy
         public float maxHealth = 100;
         // private const string nameBossArc2 = "Golem(Clone)";
         private float currentHealth = 100;
+        public bool isDead = false;
 
         public virtual void Start()
         {
@@ -32,7 +34,8 @@ namespace Script.Enemy
             return (float) currentHealth / maxHealth;
         }
 
-        public virtual void Dead(){
+        public virtual async void Dead(){
+            isDead = true;
             GetComponent<SpawnCoin>()?.Spawn();
             // if(transform.name == nameBossArc2){
             //     GameEvent.winGame?.Invoke();
@@ -41,6 +44,9 @@ namespace Script.Enemy
             gameObject.transform.position = Vector3.zero;
             currentHealth = maxHealth;
             GetComponent<EnemyControl>().ResetState();
+            await Task.Delay(300);
+            isDead = false;
+            
         }
     }
 }

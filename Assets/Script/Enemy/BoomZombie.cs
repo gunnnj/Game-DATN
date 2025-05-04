@@ -12,7 +12,7 @@ public class BoomZombie : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Army")){
+        if(other.CompareTag("Army") || other.CompareTag("MainHouse")){
             other.GetComponent<IHealthDamage>().Damage(10f);
             Debug.Log("Exploser");
             sphereCollider.enabled = false;

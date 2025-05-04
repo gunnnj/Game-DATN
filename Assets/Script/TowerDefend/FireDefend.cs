@@ -23,15 +23,20 @@ public class FireDefend : MonoBehaviour
     {
         if(other.CompareTag("Enemy") && other!=null){
             FireEnemy(other.transform.position);
-            other.GetComponent<EnemyHealth>().Damage(.2f);
+            other.GetComponent<EnemyHealth>().Damage(0.2f);
+            // if(other == null || !other.gameObject.activeSelf){
+            //     line.enabled = false;
+            //     Debug.Log(transform.name+"aaa");
+            // }
+            if(other.GetComponent<EnemyHealth>().isDead){
+                line.enabled = false;
+            }
         }
-        if(other == null || !other.gameObject.activeSelf){
-            line.enabled = false;
-        }
+        
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Enemy") || other==null){
+        if(other.CompareTag("Enemy")){
             line.enabled = false;
         }
     }

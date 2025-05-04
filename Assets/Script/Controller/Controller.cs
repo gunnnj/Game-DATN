@@ -35,16 +35,22 @@ public class Controller : MonoBehaviour
     }
     public IEnumerator LoadScene(int ind){
         SetActive(option,false);
-        SetActive(barLoading.gameObject,true);
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(ind);
+        if(barLoading!=null){
+            SetActive(barLoading.gameObject,true);
+             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(ind);
 
-        while (!asyncLoad.isDone)
-        {
-            float progressAsyn = Mathf.Clamp01(asyncLoad.progress/0.9f);
-            barLoading.value = progressAsyn;
+            while (!asyncLoad.isDone)
+            {
+                float progressAsyn = Mathf.Clamp01(asyncLoad.progress/0.9f);
+                barLoading.value = progressAsyn;
+                yield return null;
+            }
             yield return null;
         }
-        yield return null;
+        else{
+            SceneManager.LoadScene(ind);
+        }
+       
     }
     public void LoadSceneLevel(){
         SceneManager.LoadScene("Level");

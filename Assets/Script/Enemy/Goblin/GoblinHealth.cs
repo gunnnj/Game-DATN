@@ -7,8 +7,13 @@ public class GoblinHealth : EnemyHealth
 {
     public override void Start()
     {
-        maxHealth = LoadDataGame.Instance.GetMaxHpGoblin();
+        // maxHealth = LoadDataGame.Instance.GetMaxHpGoblin();
         base.Start();
         GetComponent<SpawnCoin>().amoutCoin = LoadDataGame.Instance.GetGoldGoblinSpawn();
+    }
+    public override void Dead()
+    {
+        base.Dead();
+        GameEvent.winGame?.Invoke();
     }
 }

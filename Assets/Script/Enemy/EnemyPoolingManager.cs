@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyPoolingManager : MonoBehaviour
 {
-    [SerializeField] private int amountGoblin;
+    [SerializeField] private int amountEnemy;
     [SerializeField] private float timeToSpawn;
     [SerializeField] public EnemyPooling[] enemyPoolings;
     public SpawnBoss spawnBoss;
@@ -24,13 +24,13 @@ public class EnemyPoolingManager : MonoBehaviour
     [ContextMenu("Spawn")]
     public void StartSpawn()
     {
-        // StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
     {
-        
-        while(amountGoblin>0){   
+        int id = amountEnemy;
+        while(id>0){   
             int dirX = Random.Range(1, 11);
             posSpawn = transform.position+ new Vector3(dirX,0f,0f);   
             enemyPoolings[0].SetPositionEnemy(posSpawn);
@@ -38,7 +38,7 @@ public class EnemyPoolingManager : MonoBehaviour
             posSpawn = transform.position+ new Vector3(dirX,0f,0f);  
             enemyPoolings[1].SetPositionEnemy(posSpawn);
             yield return new WaitForSeconds(timeToSpawn);
-            amountGoblin--;
+            id--;
         }
         
     }

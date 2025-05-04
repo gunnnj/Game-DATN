@@ -657,9 +657,9 @@ GameObject:
   - component: {fileID: 7841098403987997577}
   - component: {fileID: 1354421428466705446}
   - component: {fileID: 4646357601527533506}
-  - component: {fileID: -3990695623825188296}
+  - component: {fileID: 3818122152253225269}
   m_Layer: 7
-  m_Name: Goblin 1
+  m_Name: GoblinKing
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +675,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4509928379104161191}
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amoutCoin: 10
---- !u!114 &-3990695623825188296
+--- !u!114 &3818122152253225269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -816,10 +816,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3850722837182222187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867de8cc36f947f5b61fc2d49f1fcc90, type: 3}
+  m_Script: {fileID: 11500000, guid: 904e0589a83bbaa41a6435ad49a7116e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 250
 --- !u!1 &3850999009877595791
 GameObject:
   m_ObjectHideFlags: 0

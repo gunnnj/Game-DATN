@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 
@@ -11,17 +12,24 @@ public class GameManage : MonoBehaviour
     public CinemachineVirtualCamera CamPlayer;
     public CinemachineVirtualCamera CamRest;
     public Transform army;
+    public AllMissionSO allMissionSO;
     public static GameManage Instance;
 
     void Awake()
     {
         Instance = this;
         gold = 0;
+        ResetAllMission();
     }
     void OnEnable()
     {
         GameEvent.collectGold+= AddGold;
         GameEvent.completeBuildHouse += SpawnEnemy;
+    }
+    public void ResetAllMission(){
+        for(int i =0; i<allMissionSO.missionSOs.Count(); i++){
+            allMissionSO.missionSOs[i].isComplete = false;
+        }
     }
     public int GetGold(){
         return gold;
@@ -46,9 +54,25 @@ public class GameManage : MonoBehaviour
 
     public IEnumerator SpawnEnemyByTime(){
         yield return new WaitForSeconds(5f);
-        ToastUI.Instance.DisplayToast("Quái vật xuất hiện sau 30 giây!");
-        yield return new WaitForSeconds(10f);
+        ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 60 giây!");
+        yield return new WaitForSeconds(60f);
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         enemyPool.StartSpawn();
+        yield return new WaitForSeconds(20f);
+        ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 60 giây!");
+        yield return new WaitForSeconds(60f);
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        enemyPool.StartSpawn();
+        yield return new WaitForSeconds(20f);
+        ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 60 giây!");
+        yield return new WaitForSeconds(60f);
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        enemyPool.StartSpawn();
+        yield return new WaitForSeconds(20f);
+        ToastUI.Instance.DisplayToast("Trùm cuối xuất hiện tấn công sau 60 giây!");
+        yield return new WaitForSeconds(60f);
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        enemyPool.SpawnBoss();
         yield return new WaitForSeconds(0f);
     }
 

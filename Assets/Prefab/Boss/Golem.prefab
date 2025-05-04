@@ -534,6 +534,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   isAttack: 0
   sphereCollider: {fileID: 8193080385273480597}
+  effectImpact: {fileID: 10417555870276723}
 --- !u!114 &4644205358372064939
 MonoBehaviour:
   m_ObjectHideFlags: 0

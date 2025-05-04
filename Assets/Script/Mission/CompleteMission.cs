@@ -5,6 +5,7 @@ using UnityEngine;
 public class CompleteMission : MonoBehaviour
 {
     public GameObject goComplete;
+    public GameObject goHide;
     
     public void DisActiveGOComplete(){
         if(goComplete!=null){
@@ -16,7 +17,9 @@ public class CompleteMission : MonoBehaviour
         if(goComplete!=null){
             goComplete.SetActive(true);
         }
+        goHide?.SetActive(false);
     }
+    
 
     
 }

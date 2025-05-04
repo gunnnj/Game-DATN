@@ -5,6 +5,7 @@ using UnityEngine;
 public class GolemController : EnemyControl
 {
     public SphereCollider sphereCollider;
+    public GameObject effectImpact;
 
     void Awake()
     {
@@ -13,8 +14,9 @@ public class GolemController : EnemyControl
 
     // Event of Animation attack
     public void SpawnEffect(){
-        GameObject effect = GetComponentInChildren<GolemAttack>().effectImpact;
-        effect.SetActive(true);
+        // GameObject effect = GetComponentInChildren<GolemAttack>().effectImpact;
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Earthquake);
+        effectImpact.SetActive(true);
         sphereCollider.enabled =true;
     }
 
