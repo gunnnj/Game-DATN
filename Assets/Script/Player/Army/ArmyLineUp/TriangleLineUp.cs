@@ -27,7 +27,7 @@ namespace Script.Player.Army.ArmyLineUp
                 float currentRangeAttack = soldier.SoldierData.RangeAttack;
                 int currentDamage = soldier.SoldierData.Damage;
            
-                soldier.SoldierData.SetDamage(currentDamage + currentDamage);
+                soldier.SoldierData.SetDamage(currentDamage + currentDamage/2);
                 soldier.SoldierData.SetRangeAttack(1.5f*currentRangeAttack);
               
             }
@@ -40,7 +40,7 @@ namespace Script.Player.Army.ArmyLineUp
                 float currentRangeAttack = soldier.SoldierData.RangeAttack;
                 int currentDamage = soldier.SoldierData.Damage;
               
-                soldier.SoldierData.SetDamage((int)(currentDamage/2));
+                soldier.SoldierData.SetDamage((int)(currentDamage-5));
                 soldier.SoldierData.SetRangeAttack(currentRangeAttack/1.5f);
                 
             }

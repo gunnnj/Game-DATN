@@ -13,12 +13,14 @@ public class ArmyHealthUI : MonoBehaviour
     public TMP_Text amoutSoldier;
     public Slider hpBar;
     public GameObject army;
+    public TMP_Text hptext;
     private int amoutSol;
     private float maxHP;
     void OnEnable()
     {
         ArmyEvent.soldierDead += SetAmoutSoldier;
         PlayerEvent.addPlayer += AddSoldier;
+        ArmyEvent.deceaseHealth += DeceaseHealth;
     }
 
     async void Start()
@@ -32,11 +34,23 @@ public class ArmyHealthUI : MonoBehaviour
     private void Update()
     {
         hpBar.value = ArmyHealth.Instance.currentHealth/maxHP;
+        UpdateHealth(ArmyHealth.Instance.currentHealth,maxHP);
     }
     void OnDisable()
     {
         ArmyEvent.soldierDead -= SetAmoutSoldier;
         PlayerEvent.addPlayer -= AddSoldier;
+    }
+    public void DeceaseHealth(bool value){
+        if(!value){
+            maxHP = 120;
+        }
+        else{
+            maxHP = 100;
+        }
+    }
+    public void UpdateHealth(float current, float max){
+        hptext.text = current+"/"+max;
     }
     public void SetAmoutSoldier(){
         amoutSol --;

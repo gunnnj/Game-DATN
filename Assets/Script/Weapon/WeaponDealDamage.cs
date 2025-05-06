@@ -29,6 +29,9 @@ namespace Script.Weapon
             {
                 if(other.GetComponent<IHealthDamage>()!=null){
                     other.GetComponent<IHealthDamage>().Damage(Damage);
+                    if(other.CompareTag("Enemy")){
+                        ManagerUI.Instance.ShowHpMinus(other.transform,Damage);
+                    }
                 }
                 
                 StartCoroutine(weaponMovement.DestroyObjectCourutine());

@@ -16,6 +16,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
     {
         PlayerEvent.addPlayer += AddSoldier;
         ArmyEvent.heal += Heal;
+        ArmyEvent.deceaseHealth += DeceaseHealth;
     }
     void Start()
     {
@@ -43,7 +44,6 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
             ArmyPlayer.Instance.SoldierDead();
             ArmyEvent.soldierDead?.Invoke();
             amoutSoldier --;
-            Debug.Log(amoutSoldier);
             if(amoutSoldier==0){
                 if(!GameEvent.isLose){
                     GameEvent.loseGame?.Invoke();
@@ -55,6 +55,18 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
             else{
                 currentHealth = totalHP;
             }
+        }
+    }
+    public void DeceaseHealth(bool value){
+        if(!value){
+            currentHealth += 20;
+            totalHP = 120;
+            Debug.Log("Tăng máu:"+totalHP);
+        }
+        else{
+            currentHealth -= 20;
+            totalHP = 100;
+            Debug.Log("Giảm máu:"+totalHP);
         }
     }
     public void Heal(){

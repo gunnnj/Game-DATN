@@ -16,7 +16,7 @@ MonoBehaviour:
   ImageMission: {fileID: 21300000, guid: 04602a8ead820a14c8e4e1002756d1a5, type: 3}
   Describe: "T\u0103ng s\u1EE9c ph\xF2ng th\u1EE7"
   RequimentSoldier: 4
-  RequimentGold: 8
-  TimeToComplete: 20
+  RequimentGold: 5
+  TimeToComplete: 5
   TypeMission: 1
   isComplete: 0

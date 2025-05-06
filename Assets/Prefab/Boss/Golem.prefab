@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 406426358517864640}
   - component: {fileID: 6217434553846702923}
   - component: {fileID: 1596613237218497370}
-  - component: {fileID: 4644205358372064939}
+  - component: {fileID: 1495916541845806493}
   m_Layer: 7
   m_Name: Golem
   m_TagString: Enemy
@@ -535,7 +535,7 @@ MonoBehaviour:
   isAttack: 0
   sphereCollider: {fileID: 8193080385273480597}
   effectImpact: {fileID: 10417555870276723}
---- !u!114 &4644205358372064939
+--- !u!114 &1495916541845806493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,10 +544,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2286820008875560630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867de8cc36f947f5b61fc2d49f1fcc90, type: 3}
+  m_Script: {fileID: 11500000, guid: fe4c5f9c4397a70458338711d65277c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
+  isDead: 0
 --- !u!1 &2368497695802276016
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +601,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.87
+  m_Radius: 6.89
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1610009814960724776
 MonoBehaviour:

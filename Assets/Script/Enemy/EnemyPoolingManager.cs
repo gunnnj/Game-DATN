@@ -9,7 +9,7 @@ public class EnemyPoolingManager : MonoBehaviour
     [SerializeField] public EnemyPooling[] enemyPoolings;
     public SpawnBoss spawnBoss;
     private Vector3 posSpawn;
-    private bool isSpawn =false;
+    // private bool isSpawn =false;
     public static EnemyPoolingManager Instance;
 
     void Start()

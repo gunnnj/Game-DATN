@@ -1,3 +1,4 @@
+using Script.Event;
 using UnityEngine;
 
 namespace Script.Player.Army.ArmyLineUp
@@ -14,7 +15,8 @@ namespace Script.Player.Army.ArmyLineUp
             base.OnEnterLineUp();
             controller.SetRectangle();
            
-            IncreaseSpeed();
+            // IncreaseSpeed();
+            ArmyEvent.deceaseHealth?.Invoke(false);
             this.SpawnEffect(LineUp.Rectangle);
         }
         
@@ -24,7 +26,8 @@ namespace Script.Player.Army.ArmyLineUp
         public override void OnExitLineUp()
         {
             base.OnExitLineUp();
-            DeceaseSpeed();
+            // DeceaseSpeed();
+            ArmyEvent.deceaseHealth?.Invoke(true);
         }
 
         private void IncreaseSpeed()

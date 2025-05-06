@@ -8,8 +8,14 @@ public class ManagerUI : MonoBehaviour
     public GameObject winUI;
     public GameObject LoseUI;
     public TMP_Text goldTxt;
+    public GameObject canvasHp;
     private int amoutGold;
+    public static ManagerUI Instance;
 
+    void Awake()
+    {
+        Instance = this;
+    }
     void OnEnable()
     {
         GameEvent.winGame += WinGame;
@@ -54,5 +60,9 @@ public class ManagerUI : MonoBehaviour
     {
         amoutGold = GameManage.Instance.GetGold();
         goldTxt.text = amoutGold+"";
+    }
+    public void ShowHpMinus(Transform parrent, int dame){
+        GameObject gameObject = Instantiate(canvasHp,parrent);
+        gameObject.GetComponent<FloatingTextUI>().ShowText(dame);
     }
 }
