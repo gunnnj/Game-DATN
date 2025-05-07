@@ -13,11 +13,13 @@ public class GameManage : MonoBehaviour
     public CinemachineVirtualCamera CamRest;
     public Transform army;
     public AllMissionSO allMissionSO;
+    private RangeAttackUI rangeAttackUI;
     public static GameManage Instance;
 
     void Awake()
     {
         Instance = this;
+        rangeAttackUI = FindFirstObjectByType<RangeAttackUI>();
         gold = 0;
         ResetAllMission();
     }
@@ -56,22 +58,26 @@ public class GameManage : MonoBehaviour
         yield return new WaitForSeconds(5f);
         ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 20 giây!");
         yield return new WaitForSeconds(20f);
+        rangeAttackUI.SetOriginTarget();
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(20f);
         ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 20 giây!");
         yield return new WaitForSeconds(20f);
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        rangeAttackUI.SetOriginTarget();
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(20f);
         ToastUI.Instance.DisplayToast("Quái vật xuất hiện tấn công sau 20 giây!");
         yield return new WaitForSeconds(20f);
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        rangeAttackUI.SetOriginTarget();
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(20f);
         ToastUI.Instance.DisplayToast("Trùm cuối xuất hiện tấn công sau 20 giây!");
         yield return new WaitForSeconds(20f);
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        rangeAttackUI.SetOriginTarget();
         enemyPool.SpawnBoss();
         yield return new WaitForSeconds(0f);
     }

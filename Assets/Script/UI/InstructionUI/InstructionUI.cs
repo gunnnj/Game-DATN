@@ -26,16 +26,19 @@ public class InstructionUI : MonoBehaviour
     }
     public void AddListInstruction(){
         messInstruction = new string[]{"Nút hiển thị nhiệm vụ và thanh tiến độ thực hiện nhiệm vụ.",
-                                       "Thanh máu của số lượng người lính, thanh thể lực",
-                                       "Thu thập đủ tài nguyên để thực hiện nhiệm vụ, ưu tiên nhiệm vụ nhà chính để hồi phục thể lực",
+                                       "Thanh máu của số lượng lính trong đội quân",
+                                       "Thu thập đủ tài nguyên để thực hiện nhiệm vụ",
+                                       "Vị trí xây dựng nhà chính",
+                                       "Khi nhà chính được xây, quái vật sẽ xuất hiện từng đợt để phá hủy",
+                                       "Nếu nhà chính bị phá hủy hoặc không còn đội quân, bạn sẽ thua!",
+                                       "Bảo vệ nhà chính khỏi những đợt tấn công của quái vật",
                                        "Nút thay đổi đội hình và các item hỗ trợ",
-                                       "Để ý cảnh báo khi nhà chính bị tấn công",                                       
+                                       "Để ý cảnh báo khi nhà chính bị tấn công",  
+                                       "Để ý hướng mũi tên chỉ dẫn đến các nhà giam và quay lại nhà chính",                                    
                                        "Di chuyển đến nhà giam để giải cứu đồng đội, cẩn thận những quái vật canh gác",
                                        "Di chuyển lại gần mục tiêu để tấn công, nhận vàng khi tiêu diệt",
-                                       "Di chuyển lại gần đồng đội giải cứu để tập hợp đội quân",
-                                       "Bảo vệ nhà chính khỏi những đợt tấn công của quái vật",
-                                       "Thực hiện những nhiệm vụ để tăng sức mạnh",
-                                       "Nếu nhà chính bị phá hủy hoặc không còn đội quân, bạn sẽ thua!",
+                                       "Di chuyển lại gần đồng đội tập hợp đội quân",
+                                       "Thực hiện những nhiệm vụ để tăng sức mạnh",                                     
                                        "Cuối cùng: Đánh bại Boss để hoàn thành màn chơi!"
                             
                             };

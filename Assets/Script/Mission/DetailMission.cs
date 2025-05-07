@@ -118,7 +118,7 @@ public class DetailMission : MonoBehaviour
             PlayerEvent.addPlayer?.Invoke(army.transform.position);
         }
         GetComponent<CompleteMission>().ActiveGOComplete();
-        if(missionSO.ImageMission.name == "MH1"){
+        if(missionSO.ImageMission.name == "MH1" || missionSO.ImageMission.name == "MH2"){
             ToastUI.Instance.DisplayToast("Nhà chính đã hoàn thành!");
             GameEvent.completeBuildHouse?.Invoke();
         }
