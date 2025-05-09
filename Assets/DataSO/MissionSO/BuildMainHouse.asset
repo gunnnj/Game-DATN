@@ -19,4 +19,4 @@ MonoBehaviour:
   RequimentGold: 5
   TimeToComplete: 5
   TypeMission: 0
-  isComplete: 0
+  isComplete: 1

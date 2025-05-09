@@ -67,7 +67,10 @@ public class AudioManager : MonoBehaviour
         Laser,
         Losing,
         Winning,
-        ChangeLineUp
+        ChangeLineUp,
+        Heal,
+        FireBall,
+        BuyCoin
     }
     public enum MusicData{
         BackgroundMusic

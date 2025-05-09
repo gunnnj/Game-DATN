@@ -22,7 +22,6 @@ public class MainHouseHealth :MonoBehaviour, IHealthDamage
             
             if(!GameEvent.isLose){
                 GameEvent.loseGame?.Invoke();
-                AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
                 Debug.Log("Lose destroyed mainhouse");
                 GameEvent.isLose = true;
             }

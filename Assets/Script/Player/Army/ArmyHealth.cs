@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Script.Event;
 using Script.Interface;
 using UnityEngine;
@@ -48,7 +49,6 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
                 if(!GameEvent.isLose){
                     GameEvent.loseGame?.Invoke();
                     GameEvent.isLose = true;
-                    AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
                 }
                 
             }
@@ -69,8 +69,18 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
             Debug.Log("Giảm máu:"+totalHP);
         }
     }
-    public void Heal(){
-        currentHealth+=50;
+    public async void Heal(){
+        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Heal);
+        // currentHealth+=50;
+        int healPlus = 0;
+        while(healPlus < 50){
+            await Task.Delay(50);
+            currentHealth+=5;
+            healPlus+=5;
+        }
+        if(currentHealth>100){
+            currentHealth = 100;
+        }
     }
 
     private IEnumerator RegenerateHP()

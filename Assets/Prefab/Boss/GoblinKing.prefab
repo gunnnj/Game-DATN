@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a1ce9485fc3b54bbec574bd1475104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   range: 1.2
 --- !u!1 &1478104380828937743
 GameObject:
@@ -819,7 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904e0589a83bbaa41a6435ad49a7116e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 250
+  maxHealth: 300
+  isDead: 0
 --- !u!1 &3850999009877595791
 GameObject:
   m_ObjectHideFlags: 0
