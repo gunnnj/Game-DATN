@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Threading.Tasks;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 
 public class ManagerUI : MonoBehaviour
 {
@@ -15,6 +11,7 @@ public class ManagerUI : MonoBehaviour
     public GameObject canvasHp;
     public GameObject winGo;
     public GameObject loseGo;
+    public Image progressBoss;
     private int amoutGold;
     private Color originColor;
     private Color originColorLose;
@@ -31,6 +28,7 @@ public class ManagerUI : MonoBehaviour
         GameEvent.loseGame += LoseGame;
         GameEvent.collectGold+=UpdateGold;
         GameEvent.minustGold+=UpdateGoldMinus;
+        GameEvent.completeBuildHouse+=UpdateProgressBoss;
     }
     public void Start()
     {
@@ -53,7 +51,6 @@ public class ManagerUI : MonoBehaviour
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
         await Task.Delay(2000);
         AudioManager.Instance.SetMuteSfx(true);
-
     }
     public async void ShowPopUp(RectTransform rect){
         float scale = 0.5f;
@@ -111,5 +108,15 @@ public class ManagerUI : MonoBehaviour
     public void ShowHpMinus(Transform parrent, int dame){
         GameObject gameObject = Instantiate(canvasHp,parrent);
         gameObject.GetComponent<FloatingTextUI>().ShowText(dame);
+    }
+    public async void UpdateProgressBoss(){
+        float totalTime = GameManage.Instance.timeSpawnEnemy*7;
+        float time = 0;
+        await Task.Delay(5000);
+        while(time<totalTime){
+            await Task.Delay(500);
+            time+=0.5f;
+            progressBoss.fillAmount = time/totalTime;
+        }
     }
 }

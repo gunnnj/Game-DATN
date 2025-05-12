@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Script.Event;
 using TMPro;
@@ -22,7 +20,7 @@ public class DetailMission : MonoBehaviour
     private int amountSoldier;
     private int amountGold;
 
-    void Awake()
+    async void Awake()
     {
         imageM = transform.Find("ImageMission").GetComponent<Image>();
         nameM = transform.Find("Name").GetComponent<TextMeshProUGUI>();
@@ -33,6 +31,8 @@ public class DetailMission : MonoBehaviour
         btnConfirm = transform.Find("BtnConfirm").GetComponent<Button>();
         btnConfirm.onClick.AddListener(OnClickConfirm);
         
+        await Task.Delay(500);
+
         if(missionSO.isComplete){
             transform.gameObject.SetActive(false);
             SetCompleteMission();
@@ -73,10 +73,10 @@ public class DetailMission : MonoBehaviour
 
     public void SetBtnForReq(){
         if(amountSoldier>missionSO.RequimentSoldier && amountGold>=missionSO.RequimentGold){
-            btnConfirm.GetComponent<Image>().sprite = spriteOn;
+            btnConfirm.image.sprite = spriteOn;
         }
         else{
-            btnConfirm.GetComponent<Image>().sprite = spriteOff;
+            btnConfirm.image.sprite = spriteOff;
         }
     }
     
@@ -92,12 +92,12 @@ public class DetailMission : MonoBehaviour
         GameManage.Instance.MinusGold(missionSO.RequimentGold);
 
 
-        if(btnConfirm.GetComponent<Image>().sprite == spriteOn){
+        if(btnConfirm.image.sprite == spriteOn){
             if(!ProgressBar.Instance.isProgress){
 
                 ProgressBar.Instance.ExecuteMission(missionSO.TimeToComplete, missionSO.TypeMission,this.gameObject);
                 btnConfirm.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Thực hiện";
-                btnConfirm.GetComponent<Image>().sprite = spriteProcess;
+                btnConfirm.image.sprite = spriteProcess;
 
             }
             else{

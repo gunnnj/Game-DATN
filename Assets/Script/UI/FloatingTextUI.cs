@@ -9,7 +9,7 @@ public class FloatingTextUI : MonoBehaviour
     public TMP_Text textComponent;
     private float floatDuration = 0.5f;
     private float fadeDuration = 0.3f;
-    private float floatHeight = 1.5f;
+    private float floatHeight = 2f;
 
     // void Start()
     // {
