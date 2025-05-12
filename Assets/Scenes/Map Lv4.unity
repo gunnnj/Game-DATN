@@ -4632,7 +4632,7 @@ PrefabInstance:
     - target: {fileID: 818697736780213816, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
       propertyPath: missionSO
       value: 
-      objectReference: {fileID: 11400000, guid: d2395bbbfaad6d84298d7df8b0177e42, type: 2}
+      objectReference: {fileID: 11400000, guid: 64c0f9682ccc9394d8adc8aeeceb92c8, type: 2}
     - target: {fileID: 929276044428490356, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
       propertyPath: progressBoss
       value: 
@@ -4715,6 +4715,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809641315613998754, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889781139187471718, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3033408974923550219, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}

@@ -4895,6 +4895,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6752779857281080618}
     m_Modifications:
+    - target: {fileID: 818697736780213816, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
+      propertyPath: missionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c1686946e39c0148b1334d4f58ddc07, type: 2}
     - target: {fileID: 929276044428490356, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
       propertyPath: progressBoss
       value: 
@@ -4973,6 +4977,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809641315613998754, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889781139187471718, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3033408974923550219, guid: 962dac2b26e9ce2408fbfe7132258657, type: 3}
