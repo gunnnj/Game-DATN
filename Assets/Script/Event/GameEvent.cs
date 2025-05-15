@@ -20,7 +20,7 @@ public class GameEvent
     public static WinGame winGame;
     public static bool isWin = false;
 
-    public delegate void LoseGame();
+    public delegate void LoseGame(int type);
     public static LoseGame loseGame;
     public static bool isLose = false;
 }

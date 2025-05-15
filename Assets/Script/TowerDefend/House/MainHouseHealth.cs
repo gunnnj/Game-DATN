@@ -21,7 +21,7 @@ public class MainHouseHealth :MonoBehaviour, IHealthDamage
         if(currentHp<=0){
             
             if(!GameEvent.isLose){
-                GameEvent.loseGame?.Invoke();
+                GameEvent.loseGame?.Invoke(1);
                 Debug.Log("Lose destroyed mainhouse");
                 GameEvent.isLose = true;
             }

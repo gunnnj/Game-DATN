@@ -83,7 +83,6 @@ public class DetailMission : MonoBehaviour
     public async void OnClickConfirm(){
 
         for(int i=0; i<missionSO.RequimentSoldier;i++){
-            Debug.Log("-1 soldier");
             await Task.Delay(200);
             ArmyPlayer.Instance.SoldierDead();
             ArmyEvent.soldierDead?.Invoke();
@@ -94,7 +93,7 @@ public class DetailMission : MonoBehaviour
 
         if(btnConfirm.image.sprite == spriteOn){
             if(!ProgressBar.Instance.isProgress){
-
+                AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.BuyCoin);
                 ProgressBar.Instance.ExecuteMission(missionSO.TimeToComplete, missionSO.TypeMission,this.gameObject);
                 btnConfirm.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Thực hiện";
                 btnConfirm.image.sprite = spriteProcess;

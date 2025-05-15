@@ -47,7 +47,7 @@ public class ArmyHealth : MonoBehaviour, IHealthDamage
             amoutSoldier --;
             if(amoutSoldier==0){
                 if(!GameEvent.isLose){
-                    GameEvent.loseGame?.Invoke();
+                    GameEvent.loseGame?.Invoke(0);
                     GameEvent.isLose = true;
                 }
                 

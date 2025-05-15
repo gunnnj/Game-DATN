@@ -9,26 +9,20 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource soundFX;
     [SerializeField] List<AudioClip> soundClips;
     [SerializeField] List<AudioClip> musicClips;
-    [SerializeField] public Sprite imgOn;
-    [SerializeField] public Sprite imgOff;
-    [SerializeField] public Button btnSound;
-    [SerializeField] public Button btnMusic;
-    private bool isSoundOn;
-    private bool isMusicOn;
     public static AudioManager Instance;
 
-    void Start()
+    void Awake()
     {
-        Instance = this;
-        isSoundOn = true;
-        isMusicOn = true;
-
-        btnSound?.onClick.AddListener(SettingSound);
-
-        btnMusic?.onClick.AddListener(SettingMusic);
-        
+        if(Instance==null){
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else{
+            Destroy(gameObject);
+        }
         
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
@@ -69,34 +63,11 @@ public class AudioManager : MonoBehaviour
         ChangeLineUp,
         Heal,
         FireBall,
-        BuyCoin
+        BuyCoin,
+        Build
     }
     public enum MusicData{
         BackgroundMusic
     }
-    //Add button popup
-    public void SettingSound(){
-        isSoundOn = !isSoundOn;
-        if(isSoundOn){
-            btnSound.transform.DOLocalMoveX(213f, 0.2f).SetEase(Ease.Linear);
-            btnSound.GetComponent<Image>().sprite = imgOn;
-        }
-        else{
-            btnSound.transform.DOLocalMoveX(326f, 0.2f).SetEase(Ease.Linear);
-            btnSound.GetComponent<Image>().sprite = imgOff;
-        }
-        SetMuteSfx(!isSoundOn);
-    }
-    public void SettingMusic(){
-        isMusicOn = !isMusicOn;
-        if(isMusicOn){
-            btnMusic.transform.DOLocalMoveX(213f, 0.2f).SetEase(Ease.Linear);
-            btnMusic.GetComponent<Image>().sprite = imgOn;
-        }
-        else{
-            btnMusic.transform.DOLocalMoveX(326f, 0.2f).SetEase(Ease.Linear);
-            btnMusic.GetComponent<Image>().sprite = imgOff;
-        }
-        SetMuteMusic(!isMusicOn);
-    }
+    
 }

@@ -18,7 +18,7 @@ public class CompleteMission : MonoBehaviour
             goComplete.SetActive(true);
         }
         if(goHide!=null){
-            goHide.SetActive(true);
+            goHide.SetActive(false);
         }
         
     }

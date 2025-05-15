@@ -43,8 +43,14 @@ public class ManagerUI : MonoBehaviour
         GameEvent.minustGold-=UpdateGoldMinus;
     }
 
-    private async void LoseGame()
+    private async void LoseGame(int type)
     {
+        if(type == 1){
+            await Task.Delay(1000);
+            GameManage.Instance.SwithCamera(true);
+            await Task.Delay(2000);
+        }
+        
         LoseUI.gameObject.SetActive(true);
         FadeImg(LoseUI, loseGo, originColorLose);
         await Task.Delay(500);

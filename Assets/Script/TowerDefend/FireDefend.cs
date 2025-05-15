@@ -23,7 +23,7 @@ public class FireDefend : MonoBehaviour
     {
         if(other.CompareTag("Enemy") && other!=null){
             FireEnemy(other.transform.position);
-            other.GetComponent<EnemyHealth>().Damage(0.2f);
+            other.GetComponent<EnemyHealth>().Damage(0.4f);
             // if(other == null || !other.gameObject.activeSelf){
             //     line.enabled = false;
             //     Debug.Log(transform.name+"aaa");
