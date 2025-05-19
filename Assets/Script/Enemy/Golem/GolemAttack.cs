@@ -22,12 +22,6 @@ public class GolemAttack : EnemyAttack
 
     }
 
-    void FixedUpdate()
-    {
-        if(enemyControl.isAttack){
-            
-        }
-    }
 
     
 }

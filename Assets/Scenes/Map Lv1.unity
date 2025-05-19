@@ -726,6 +726,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8040223115959454844, guid: 83e44a6cbbda9de4380ecf838c4465b5, type: 3}
   m_PrefabInstance: {fileID: 7285976881643867013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1328098506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 596258961880665661, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_Radius
+      value: 6.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342112720284968361, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342112720284968361, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850722837182222187, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_Name
+      value: GoblinKing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850722837182222187, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 102.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7340219999284900518, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384722831946208454, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384722831946208454, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+--- !u!1 &1328098507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3850722837182222187, guid: 0973d159188aa374aac947751a9c06b3, type: 3}
+  m_PrefabInstance: {fileID: 1328098506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1339128049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1364,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1753374876048744921, guid: 0dd61e12d418a8b4f9d486cfd7b0a743, type: 3}
+      propertyPath: bossPrefab
+      value: 
+      objectReference: {fileID: 1328098507}
     - target: {fileID: 1817732313223625719, guid: 0dd61e12d418a8b4f9d486cfd7b0a743, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1742,3 +1832,4 @@ SceneRoots:
   - {fileID: 4788457026909899106}
   - {fileID: 230583115}
   - {fileID: 1793784844}
+  - {fileID: 1328098506}

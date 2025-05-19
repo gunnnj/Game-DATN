@@ -5,7 +5,12 @@ using UnityEngine;
 public class SpawnBoss : MonoBehaviour
 {
     public GameObject bossPrefab;
-    public void SpawnBossArc(Vector3 position){
-        GameObject boss = Instantiate(bossPrefab,position, Quaternion.identity);
+    public Transform pos;
+    public void SpawnBossArc(){
+        if(pos!=null){
+            bossPrefab.transform.position = pos.position;
+        }
+        bossPrefab.SetActive(true);
+        
     }
 }

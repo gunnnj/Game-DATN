@@ -19,7 +19,9 @@ public class EnemyPoolingManager : MonoBehaviour
 
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.B)){
+            SpawnBoss();
+        }
     }
     [ContextMenu("Spawn")]
     public void StartSpawn()
@@ -44,6 +46,6 @@ public class EnemyPoolingManager : MonoBehaviour
     }
     [ContextMenu("SpawnBoss")]
     public void SpawnBoss(){
-        spawnBoss.SpawnBossArc(transform.position);
+        spawnBoss.SpawnBossArc();
     }
 }
