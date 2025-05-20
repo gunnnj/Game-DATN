@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 1423926778000951337}
   - component: {fileID: 5985321311205695719}
   - component: {fileID: 446323996959961181}
+  - component: {fileID: 3039497748987149162}
   m_Layer: 0
   m_Name: ZombieExplode
   m_TagString: Enemy
@@ -222,6 +223,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  isDead: 0
+--- !u!114 &3039497748987149162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545511928199928183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ba9e91815de7114b83e733c5c01dcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amoutCoin: 10
 --- !u!1 &621533685840553043
 GameObject:
   m_ObjectHideFlags: 0

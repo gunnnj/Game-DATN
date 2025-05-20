@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using Cinemachine;
@@ -12,12 +13,16 @@ public class GameManage : MonoBehaviour
     public Transform army;
     public float timeSpawnEnemy = 20f;
     public AllMissionSO allMissionSO;
+    public bool offSound;
+
     private RangeAttackUI rangeAttackUI;
     public static GameManage Instance;
+
 
     void Awake()
     {
         Instance = this;
+        offSound = false;
         rangeAttackUI = FindFirstObjectByType<RangeAttackUI>();
         gold = 0;
         ResetAllMission();
@@ -26,6 +31,24 @@ public class GameManage : MonoBehaviour
     {
         GameEvent.collectGold+= AddGold;
         GameEvent.completeBuildHouse += SpawnEnemy;
+        GameEvent.loseGame += OffSoundLose;
+        GameEvent.winGame += OffSoundWin;
+    }
+
+    private void OffSoundWin()
+    {
+        offSound = true;
+    }
+
+    private void OffSoundLose(int type)
+    {
+        offSound = true;
+    }
+
+    void OnDisable()
+    {
+        GameEvent.loseGame -= OffSoundLose;
+        GameEvent.winGame -= OffSoundWin;
     }
     public void ResetAllMission(){
         for(int i =0; i<allMissionSO.missionSOs.Count(); i++){
@@ -58,24 +81,24 @@ public class GameManage : MonoBehaviour
         ToastUI.Instance.DisplayToast($"Quái vật xuất hiện tấn công sau {timeSpawnEnemy} giây!");
         yield return new WaitForSeconds(timeSpawnEnemy);
         rangeAttackUI.SetOriginTarget();
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(timeSpawnEnemy);
         ToastUI.Instance.DisplayToast($"Quái vật xuất hiện tấn công sau {timeSpawnEnemy} giây!");
         yield return new WaitForSeconds(timeSpawnEnemy);
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         rangeAttackUI.SetOriginTarget();
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(timeSpawnEnemy);
         ToastUI.Instance.DisplayToast($"Quái vật xuất hiện tấn công sau {timeSpawnEnemy} giây!");
         yield return new WaitForSeconds(timeSpawnEnemy);
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         rangeAttackUI.SetOriginTarget();
         enemyPool.StartSpawn();
         yield return new WaitForSeconds(timeSpawnEnemy);
         ToastUI.Instance.DisplayToast($"Trùm cuối xuất hiện tấn công sau {timeSpawnEnemy} giây!");
         yield return new WaitForSeconds(timeSpawnEnemy);
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
+        if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Warning);
         rangeAttackUI.SetOriginTarget();
         enemyPool.SpawnBoss();
         yield return new WaitForSeconds(0f);

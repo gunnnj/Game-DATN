@@ -55,8 +55,7 @@ public class ManagerUI : MonoBehaviour
         FadeImg(LoseUI, loseGo, originColorLose);
         await Task.Delay(500);
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Losing);
-        await Task.Delay(2000);
-        AudioManager.Instance.SetMuteSfx(true);
+
     }
     public async void ShowPopUp(RectTransform rect){
         float scale = 0.5f;
@@ -90,8 +89,7 @@ public class ManagerUI : MonoBehaviour
         FadeImg(winUI, winGo, originColor);
         await Task.Delay(500);
         AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Winning);
-        await Task.Delay(1000);
-        AudioManager.Instance.SetMuteSfx(true);
+
     }
     public void OnClickHome(){
         Controller.Instance.LoadMenu();

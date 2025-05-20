@@ -34,7 +34,7 @@ public class SoldierController : MonoBehaviour
 
     public Transform target { get; private set; }
 
-
+    private bool offSound;
     #endregion
 
 
@@ -42,8 +42,19 @@ public class SoldierController : MonoBehaviour
     {
         SoldierData = GetComponent<SoldierData>();
         SoliderHealth = GetComponent<SoliderHealth>();
+        offSound = false;
+    }
+    void OnEnable()
+    {
+        GameEvent.loseGame += OffSoundLose;
+        GameEvent.winGame += OffSoundWin;
     }
 
+    void OnDisable()
+    {
+        GameEvent.loseGame -= OffSoundLose;
+        GameEvent.winGame -= OffSoundWin;
+    }
 
     private void Start()
     {
@@ -65,7 +76,15 @@ public class SoldierController : MonoBehaviour
     }
 
 
+    private void OffSoundWin()
+    {
+        offSound = true;
+    }
 
+    private void OffSoundLose(int type)
+    {
+        offSound = true;
+    }
 
 
     public void SetPostion(Vector3 postion)
@@ -91,7 +110,7 @@ public class SoldierController : MonoBehaviour
     // Add by Event of Animator;
     public void SpawnWeapon()
     {
-        AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ThrowWeapon);
+        if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.ThrowWeapon);
         GameObject weapon = WeaponPooling.Instance.GetPooledObject();
         weapon.transform.position = WeaponTarget.position;
         weapon.transform.rotation = WeaponTarget.rotation;
