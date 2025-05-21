@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Script.Enemy;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,6 +23,10 @@ public class ZombieExplodeAttack : EnemyAttack
         transform.parent.position = Vector3.zero;
         await Task.Delay(1000);
         isExplode = false;
+        GetComponentInParent<EnemyHealth>().spawnCoin.amoutCoin = 0;
+        GetComponentInParent<EnemyHealth>().Dead();
+        await Task.Delay(1000);
+        GetComponentInParent<EnemyHealth>().spawnCoin.amoutCoin = 10;
     }
 
 }

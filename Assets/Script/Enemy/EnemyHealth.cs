@@ -13,9 +13,10 @@ namespace Script.Enemy
         protected float currentHealth = 100;
         public bool isDead = false;
         public bool offSound;
+        public SpawnCoin spawnCoin;
         void Awake()
         {
-            
+            spawnCoin = GetComponent<SpawnCoin>();
             offSound = false;
         }
         
@@ -60,7 +61,7 @@ namespace Script.Enemy
 
         public virtual async void Dead(){
             isDead = true;
-            GetComponent<SpawnCoin>()?.Spawn();
+            spawnCoin?.Spawn();
             gameObject.SetActive(false);
             gameObject.transform.position = Vector3.zero;
             currentHealth = maxHealth;
