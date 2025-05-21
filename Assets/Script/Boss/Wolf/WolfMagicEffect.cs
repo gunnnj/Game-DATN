@@ -10,9 +10,31 @@ public class WolfMagicEffect : MonoBehaviour
     [SerializeField] public ParticleSystem fireStoneAOE;
     [SerializeField] private ParticleSystem shieldMagic;
     private List<ParticleSystem> listEffect;
+    private bool offSound ;
+    void OnEnable()
+    {
+        GameEvent.winGame += OffSound;
+        GameEvent.loseGame += OffSoundLose;
+    }
+    void OnDisable()
+    {
+        GameEvent.winGame -= OffSound;
+        GameEvent.loseGame -= OffSoundLose;
+    }
+
+    private void OffSoundLose(int type)
+    {
+        offSound = true;
+    }
+
+    private void OffSound()
+    {
+        offSound = true;
+    }
 
     void Start()
     {
+        offSound = false;
         shieldMagic.GetComponent<SphereCollider>().enabled = false;
         listEffect = new List<ParticleSystem>();
         listEffect.Add(redExplodeAOE);
@@ -27,6 +49,15 @@ public class WolfMagicEffect : MonoBehaviour
         if(target!=null){
             effect.transform.position = new Vector3(target.position.x,0f,target.position.z);
             TurnEffectAOE(effect);
+            if(index==1){
+                if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Laser);
+            }
+            if(index==1){
+                if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Rock);
+            }
+            if(index == 2){
+                if(!offSound) AudioManager.Instance.PlaySfx(AudioManager.SoundFXData.Rock);
+            }
         }        
     }
 
@@ -35,6 +66,7 @@ public class WolfMagicEffect : MonoBehaviour
     public void TurnShield(bool booleanVal){
         shieldMagic.GetComponent<SphereCollider>().enabled = booleanVal;
         shieldMagic.Play();
+        if(!booleanVal) shieldMagic.gameObject.SetActive(false);
     }
 
     public void TurnEffectAOE(ParticleSystem effect){

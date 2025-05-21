@@ -51,24 +51,22 @@ MonoBehaviour:
   soundClips:
   - {fileID: 8300000, guid: 5aeecc362d4231d4bbb292a1fc6a4678, type: 3}
   - {fileID: 8300000, guid: 048026d1e4132f048a9ced88852a00f4, type: 3}
-  - {fileID: 8300000, guid: e397fa5ce6160d24c8588ca563d80bee, type: 3}
+  - {fileID: 8300000, guid: 05cd14d1a3249f340bb3f59492d8d311, type: 3}
   - {fileID: 8300000, guid: c717d250ec1b92746b579b964d099d18, type: 3}
   - {fileID: 8300000, guid: 40de1da1a30b48f41b6801b979986109, type: 3}
   - {fileID: 8300000, guid: ca355476f17539a48a93b247f02d013c, type: 3}
   - {fileID: 8300000, guid: 8cd8e4af5afddbb4c944c3bd570631b3, type: 3}
-  - {fileID: 8300000, guid: 824fd92ad2e6b8e4b9650bdc79fe6610, type: 3}
+  - {fileID: 8300000, guid: df816821e124ae641af6cbe00582fc50, type: 3}
   - {fileID: 8300000, guid: f8079ee5db3ba7543aa698baf976d827, type: 3}
   - {fileID: 8300000, guid: 149e880feb4d1ec45af781806583a838, type: 3}
   - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   - {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   - {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
   - {fileID: 8300000, guid: 1ed9b8e950c990e4ba1b8c92cfab73e6, type: 3}
+  - {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  - {fileID: 8300000, guid: 2b21ef916f6943c439b71a7c74568878, type: 3}
   musicClips:
   - {fileID: 8300000, guid: 84409c7fbf8a30d488479c8871b3fc8f, type: 3}
-  imgOn: {fileID: 21300000, guid: 586a0e3a9cd33a841bf502a7c6e62128, type: 3}
-  imgOff: {fileID: 21300000, guid: 1ddfd2e761807e8488df2ab9cb8e68c4, type: 3}
-  btnSound: {fileID: 0}
-  btnMusic: {fileID: 0}
 --- !u!1 &4331348324228434065
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,7 +64,9 @@ public class AudioManager : MonoBehaviour
         Heal,
         FireBall,
         BuyCoin,
-        Build
+        Build,
+        Rock,
+        Slash
     }
     public enum MusicData{
         BackgroundMusic

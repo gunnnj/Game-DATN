@@ -24,8 +24,9 @@ public class LazerMagic : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (timeDealDamage <= 0 && other.CompareTag("Player"))
+        if (timeDealDamage <= 0 && other.CompareTag("Army"))
         {
+            other.GetComponent<IHealthDamage>().Damage(15f);
             Debug.Log("Dealing damage lazer");
             timeDealDamage = 1f;
         }

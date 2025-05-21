@@ -7,8 +7,9 @@ public class GolemHealth : EnemyHealth
 {
     public override void Dead()
     {
-        
-        GameEvent.winGame?.Invoke();
+        if(!GameEvent.isLose){
+            GameEvent.winGame?.Invoke();
+        }
         base.Dead();
     }
 }

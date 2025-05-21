@@ -24,7 +24,7 @@ public  class EnemyMovement : MonoBehaviour
         
         direction = Vector3.Normalize(vector3);
         direction.y = 0f;
-        if(direction!=Vector3.zero){
+        if(direction.magnitude>0.5f){
             Quaternion rotate = Quaternion.LookRotation(direction);
             transform.rotation = rotate;
         }

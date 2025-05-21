@@ -14,6 +14,9 @@ public class GoblinHealth : EnemyHealth
     public override void Dead()
     {
         base.Dead();
-        GameEvent.winGame?.Invoke();
+        if(!GameEvent.isLose){
+            GameEvent.winGame?.Invoke();
+        }
+        
     }
 }

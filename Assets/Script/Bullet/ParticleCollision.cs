@@ -6,13 +6,14 @@ public class ParticleCollision : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Player"))
         {
             
             Debug.Log("Particle hit: " + other.name);
-            other.GetComponent<IHealthDamage>().Damage(20f);
+            other.GetComponentInParent<ArmyHealth>().Damage(20f);
             
         }
         
     }
+    
 }

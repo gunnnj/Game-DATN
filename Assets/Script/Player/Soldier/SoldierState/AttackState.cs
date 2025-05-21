@@ -71,6 +71,7 @@ namespace Script.Player.Soldier.SoldierState
         private void RotateDirectionAttack()
         {
             Vector3 dir = (soldierController.target.position - soldierController.transform.position).normalized;
+            dir.y = 0;
             Quaternion rotate = Quaternion.LookRotation(dir);
             soldierController.RB.rotation = rotate;
         }
